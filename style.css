@@ -1,0 +1,249 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #000000;
+  line-height: 1.6;
+}
+
+/* Cabeçalho */
+header img.logo {
+  width: 150px; /* Ajuste o tamanho da logo conforme necessário */
+  height: auto;
+  margin-right: 20px;
+}
+
+header {
+  background-color: #0b0b0b00;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: #c0c0c0; /* prata */
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #f0f0f0;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background-color: #c0c0c0;
+  color: #000;
+}
+
+/* Banner Principal */
+.banner { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 40px;
+  background: linear-gradient(to left, #000000, #7e7e7e, #f0f0f0 );
+  flex-wrap: wrap;
+}
+
+.banner-imagem {
+  flex: 1;
+  max-width: 900px;
+  margin: -120px -50px -120px 0; /* Ajuste a margem para alinhar com o banner */
+}
+  
+.banner img {
+  width: 100%;
+  height: 900px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.banner-texto {
+    font-family: "Iceland", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    flex: 1;
+    max-width: 700px;
+    text-align: left;
+    margin-left: 80px;
+    white-space: nowrap;
+
+}
+
+.banner-texto h2 {
+  font-size: 40px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.banner-texto p {
+  font-size: 25px;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.botao {
+  padding: 12px 24px;
+  background-color: #5e5e5e;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.botao:hover {
+  background-color: #000000;
+  transform: scale(1.05);
+}
+
+.sobre-nos {
+  background-color: #000000;
+  color: #ffffff;
+  
+}
+
+.sobre-nos .container {
+  padding: 120px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* <-- Alinha à esquerda */
+  justify-content: space-between;
+  text-align: left;
+}
+
+.sobre-nos h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.conteudo-sobre {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 130px;
+  flex-wrap: wrap; /* empilha em telas pequenas */
+}
+
+.texto-sobre {
+  flex: 1;
+  max-width: 600px;
+  
+}
+
+.texto-sobre p {
+  font-size: 1.44rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.imagem-sobre {
+  flex: 1.2;
+  max-width: 1000px;
+  
+}
+
+.imagem-sobre img {
+  width: 950px;
+  height: 600px;
+  border-radius: 12px;
+  display: block;
+  }
+
+  .contato {
+  background-color: #0e0e0e;
+  color: #ddd;
+  padding: 60px 20px;
+}
+
+.contato .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contato h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contato-conteudo {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.info-contato {
+  flex: 1;
+  min-width: 250px;
+  font-size: 1.1rem;
+}
+
+.form-contato {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-contato input,
+.form-contato textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.form-contato input::placeholder,
+.form-contato textarea::placeholder {
+  color: #aaa;
+}
+
+.form-contato button {
+  padding: 12px;
+  background-color: #5e5e5e;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-contato button:hover {
+  background-color: #c0c0c0;
+  color: #000;
+}
+
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0b0b0b;
+  color: #888;
+  font-size: 14px;
+}
