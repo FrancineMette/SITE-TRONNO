@@ -169,62 +169,80 @@ nav a:hover {
   }
 
   .contato {
-  background-color: #0e0e0e;
-  color: #ddd;
-  padding: 60px 20px;
-}
+    background: url('sistema.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    color: #fffbfb;
+    padding: 80px 20px 40px;
+    z-index: 1;
+} 
 
 .contato .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 70px auto;
 }
 
 .contato h2 {
+
   font-size: 2.5rem;
   color: #fff;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   text-align: center;
 }
 
 .contato-conteudo {
   display: flex;
-  gap: 60px;
   flex-wrap: wrap;
+  gap: 40px;
   justify-content: space-between;
 }
 
-.info-contato {
+.mapa {
   flex: 1;
-  min-width: 250px;
-  font-size: 1.1rem;
+  min-width: 350px;
+  max-width: 600px;
 }
 
-.form-contato {
+.mapa iframe {
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  border: 0;
+}
+
+.info-formulario {
   flex: 1;
   min-width: 300px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 100px;
 }
+
+.info-contato p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 
 .form-contato input,
 .form-contato textarea {
   padding: 12px;
-  border: none;
-  border-radius: 8px;
   background-color: #1a1a1a;
   color: #fff;
+  border: none;
+  border-radius: 8px;
   font-size: 1rem;
-}
-
-.form-contato input::placeholder,
-.form-contato textarea::placeholder {
-  color: #aaa;
 }
 
 .form-contato button {
   padding: 12px;
-  background-color: #5e5e5e;
+  background-color: #757575;
   color: #fff;
   font-weight: bold;
   border: none;
@@ -238,6 +256,34 @@ nav a:hover {
   color: #000;
 }
 
+@media (max-width: 768px) {
+  .contato-conteudo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagem-sobre img {
+    width: 100%;
+    height: auto;
+  }
+
+  .banner-texto {
+    margin-left: 0;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .form-contato input,
+  .form-contato textarea {
+    width: 100%;
+  }
+
+  .info-formulario {
+    gap: 20px;
+  }
+}
+
+
 .whatsapp-button {
   position: fixed;
   bottom: 20px;
@@ -246,7 +292,7 @@ nav a:hover {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #ffffff00;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -270,6 +316,6 @@ footer {
   text-align: center;
   padding: 20px;
   background-color: #0b0b0b;
-  color: #888;
+  color: #fffdfd;
   font-size: 14px;
 }
