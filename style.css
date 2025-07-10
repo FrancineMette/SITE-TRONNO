@@ -213,9 +213,28 @@ nav a:hover {
 .contato-conteudo {
   display: flex;
   flex-wrap: wrap;
-  gap: 3.125rem; 
+  gap: 1rem; 
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.redes-sociais {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.redes-sociais a img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+.redes-sociais a:hover img {
+  transform: scale(1.1);
 }
 
 .mapa {
@@ -235,7 +254,7 @@ nav a:hover {
   flex: 1 1 50%;
   min-width: 18.75rem;    
   max-width: 50rem;      
-  gap: 6.25rem; 
+  gap: 2rem; 
   display: flex;
   flex-direction: column;
 }
@@ -256,7 +275,7 @@ nav a:hover {
 .form-contato textarea {
   padding: 0.75rem;     
   border-radius: 0.5rem;
-  background-color: #1a1a1a;
+  background-color: #313131;
   color: #fff;
   border: none;
   font-size: 1rem;
@@ -317,6 +336,28 @@ footer {
   font-size: 0.875rem;
 }
 
+.voltar-topo {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background-color: #ffffff;
+  color: #000;
+  height: 50px;
+  width: 50px;
+  font-size: 30px;
+  text-align: center;
+  padding: 0;
+  border-radius: 50%;
+  text-decoration: none;
+  display: none;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.voltar-topo:hover {
+  background-color: #33333380;
+  color: #ffffff;
+}
 /*_______________________________________________________________________________________________________________________________________________*/
 
 /* RESPONSIVIDADE GERAL */

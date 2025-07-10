@@ -17,7 +17,7 @@
       <ul>
         <li><a href="index.html">Início</a></li>
         <li><a href="#sobre">Sobre Nós</a></li>
-        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="serviços.html">Serviços</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
@@ -80,6 +80,18 @@
             <p><strong>Telefone:</strong> (47) 99238-6012</p>
             <p><strong>Endereço:</strong> Rua Marcos Aurélio Seara, Nº 2185 - Santa Regina - Itajaí - SC, Brasil</p>
           </div>
+
+          <div class="redes-sociais">
+            <a href="https://wa.me/5547992386012" target="_blank" aria-label="Facebook">
+                <img src="whats.png" alt="WhatsApp">
+            </a>
+            <a href="https://instagram.com/tronno.tecnologia" target="_blank" aria-label="Instagram">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+                <a href="https://linkedin.com/company/tronno-tecnologia-naval" target="_blank" aria-label="LinkedIn">
+                <img src="linkedin.png" alt="LinkedIn">
+            </a>
+          </div>
           
           <form class="form-contato" action="https://formsubmit.co/atendimento@tronno.com.br" method="POST">
             
@@ -107,5 +119,27 @@
   <footer>
     <p>&copy; 2025 TRONNO Tecnologia Naval. Todos os direitos reservados.</p>
   </footer>
+
+<a href="#" class="voltar-topo" aria-label="Voltar ao topo">
+  ↑
+</a>
+
+<script>
+  const botaoTopo = document.querySelector('.voltar-topo');
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 300) {
+      botaoTopo.style.display = 'block';
+    } else {
+      botaoTopo.style.display = 'none';
+    }
+  });
+
+  botaoTopo.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
 </body>
 </html>
