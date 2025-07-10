@@ -12,16 +12,28 @@
 </head>
 <body>
   <header>
-    <img src="LOGO TRONNO SVG.svg" alt="Logo TRONNO Tecnologia Naval" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="#sobre">Sobre Nós</a></li>
-        <li><a href="serviços.html">Serviços</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+   <img src="LOGO TRONNO SVG.svg" alt="Logo TRONNO Tecnologia Naval" class="logo" />
+   <nav class="desktop-menu">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="#sobre">Sobre Nós</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="serviços.html">Serviços</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+<div class="hamburguer" onclick="toggleMenu()">☰</div>
+
+<div id="menu-lateral" class="menu-lateral">
+  <a href="index.html">Início</a>
+  <a href="#sobre">Sobre Nós</a>
+  <a href="catalogo.html">Catálogo</a>
+  <a href="serviços.html">Serviços</a>
+  <a href="#contato">Contato</a>
+</div>
+
+</header>
 
   <main>
     <section class="banner">
@@ -29,7 +41,15 @@
     <div class="banner-texto">
       <h2>Especialistas em Soluções Elétricas Navais</h2>
       <p>Conheça nossos serviços e veja nosso catálogo de peças elétricas.</p>
-      <a href="catalogo.html" class="botao">Ver Catálogo</a>
+      <div class="botoes-banner">
+          <a href="serviços.html" class="botao" target="_blank">
+            <span class="seta">⭢</span> Ver Serviços
+          </a>
+          <a href="catalogo.html" class="botao" target="_blank">
+            <span class="seta">⭢</span> Ver Catálogo
+          </a>
+      </div>
+
     </div>
 
     <div class="banner-imagem">
@@ -139,6 +159,13 @@
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+</script>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu-lateral');
+    menu.classList.toggle('aberto');
+  }
 </script>
 
 </body>
