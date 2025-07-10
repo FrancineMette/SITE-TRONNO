@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviços | TRONNO Tecnologia Naval</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <img src="LOGO TRONNO SVG.svg" alt="Logo TRONNO Tecnologia Naval" class="logo" />
+    <nav class="desktop-menu">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#sobre">Sobre Nós</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="serviços.html" class="ativo">Serviços</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="hamburguer" onclick="toggleMenu()">☰</div>
+    <div id="menu-lateral" class="menu-lateral">
+      <a href="index.html">Início</a>
+      <a href="index.html#sobre">Sobre Nós</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="serviços.html">Serviços</a>
+      <a href="index.html#contato">Contato</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="pagina-servicos">
+      <div class="container">
+        <h1>Nossos Serviços</h1>
+        <p>Especialistas em soluções elétricas para o setor naval e offshore.</p>
+
+        <div class="servicos-grid">
+
+          <div class="servico">
+            <img src="1 - Sistemas.png" alt="Instalação Elétrica Naval" />
+            <h3>Instalações Elétricas</h3>
+            <p>Execução de instalações elétricas completas em embarcações e plataformas offshore.</p>
+          </div>
+
+          <div class="servico">
+            <img src="2 - Paineis.png" alt="Fabricação de Painéis" />
+            <h3>Fabricação de Painéis</h3>
+            <p>Montagem de painéis elétricos personalizados conforme a necessidade de cada cliente.</p>
+          </div>
+
+          <div class="servico">
+            <img src="4 - Manutenção.png" alt="Manutenção Elétrica" />
+            <h3>Manutenção Preventiva e Corretiva</h3>
+            <p>Manutenções especializadas para garantir a segurança e o bom funcionamento dos sistemas.</p>
+          </div>
+
+          <div class="servico">
+            <img src="3 - Testes.png" alt="Testes em Sistemas Elétricos" />
+            <h3>Testes Elétricos</h3>
+            <p>Execução de testes de funcionamento e inspeções técnicas com laudos especializados.</p>
+          </div>
+
+        </div>
+
+        <div class="cta-contato">
+          <h2>Precisa de um serviço específico?</h2>
+          <a href="index.html#contato" class="botao">Fale Conosco</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TRONNO Tecnologia Naval. Todos os direitos reservados.</p>
+  </footer>
+
+  <a href="#" class="voltar-topo" aria-label="Voltar ao topo">↑</a>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu-lateral');
+      menu.style.width = (menu.style.width === '250px') ? '0' : '250px';
+    }
+
+    const botaoTopo = document.querySelector('.voltar-topo');
+    window.addEventListener('scroll', function () {
+      botaoTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  </script>
+
+  <script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu-lateral');
+    menu.classList.toggle('aberto');
+  }
+</script>
+
+</body>
+</html>

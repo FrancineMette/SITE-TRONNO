@@ -156,7 +156,7 @@ nav a:hover {
 
 .banner-texto h2 {
   
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #000000;
   margin-bottom: 1.25rem;
 }
@@ -260,7 +260,58 @@ nav a:hover {
   display: block;
   object-fit: cover;
   }
+
 /*_______________________________________________________________________________________________________________________________________________*/
+/* Seção Slogan */
+
+  .slogan {
+  background-image: url('sea.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.slogan::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.479); /* fade preto */
+  z-index: 0;
+}
+
+.slogan > * {
+  position: relative;
+  z-index: 1;
+}
+
+.container-slogan {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.slogan-logo {
+  width: 900px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.slogan-texto {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 60px;
+
+}
+/*_______________________________________________________________________________________________________________________________________________*/
+/* Seção Fale Conosco */
 
 .contato {
     background: url('sistema2.png') rgb(31, 31, 31);
@@ -442,124 +493,109 @@ footer {
 }
 /*_______________________________________________________________________________________________________________________________________________*/
 
-/* RESPONSIVIDADE GERAL */
-@media (max-width: 1024px) {
-  .banner {
-    flex-direction: column;
-    padding: 40px 20px;
-    text-align: center;
-  }
+/* Página de Serviços */
 
-  .banner-imagem {
-    margin: 0;
-    width: 100%;
-    height: auto;
-  }
-
-  .banner img {
-    height: auto;
-    max-height: 600px;
-  }
-
-  .banner-texto {
-    margin-left: 0;
-    white-space: normal;
-    max-width: 100%;
-    padding: 20px 0;
-  }
-
-  .conteudo-sobre {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .texto-sobre, .imagem-sobre {
-    max-width: 100%;
-  }
-
-  .imagem-sobre img {
-    max-height: 400px;
-  }
-
-  .contato-conteudo {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .mapa, .info-formulario {
-    max-width: 100%;
-  }
-
-  .info-formulario {
-    gap: 50px;
-  }
+.pagina-servicos {
+  padding: 60px 20px;
+  color: white;
+  background-image: url('sea.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-    padding: 20px;
-  }
-
-  header img.logo {
-    width: 120px;
-    margin-right: 0;
-  }
-
-  header h1 {
-    font-size: 20px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-  }
-
-  nav a {
-    padding: 10px;
-    width: 100%;
-    text-align: left;
-  }
-
-  .banner-texto h2 {
-    font-size: 2rem;
-  }
-
-  .banner-texto p {
-    font-size: 18px;
-  }
-
-  .contato h2 {
-    font-size: 2rem;
-  }
-
-  .form-contato input,
-  .form-contato textarea,
-  .form-contato button {
-    font-size: 0.95rem;
-  }
-
-  .whatsapp-button {
-    width: 50px;
-    height: 50px;
-  }
-
-  .whatsapp-button img {
-    width: 50px;
-    height: 50px;
-  }
+.pagina-servicos::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.842); /* fade preto */
+  z-index: 0;
 }
 
-@media (max-width: 768px) {
-  .desktop-menu {
-    display: none;
-  }
+.pagina-servicos > * {
+  position: relative;
+  z-index: 1;
+}
 
-  .hamburguer {
-    display: block;
-  }
+.pagina-servicos h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #c0c0c0;
+  text-align: center;
+}
+
+.pagina-servicos p {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+}
+
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.servico {
+  background: #3d3d3d;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.servico:hover {
+  transform: scale(1.02);
+  background: #1a1a1a;
+}
+
+.servico img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.servico h3 {
+  margin: 10px 0;
+  font-size: 1.4rem;
+  color: #e0e0e0;
+}
+
+.servico p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.cta-contato {
+  text-align: center;
+  margin-top: 60px;
+  
+}
+
+.cta-contato h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #c0c0c0;
+}
+
+.cta-contato .botao {
+  display: inline-block; 
+  background: #c0c0c0;
+  color: #000;
+  padding: 12px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cta-contato .botao:hover {
+  background: white;
 }
