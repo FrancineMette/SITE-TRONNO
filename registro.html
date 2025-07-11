@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro | TRONNO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="pagina-login">
+  <div class="container-login">
+    <img src="login.svg" alt="Imagem de registro" class="imagem-login" />
+    <h1>Crie sua Conta</h1>
+
+    <form id="form-registro">
+      <label for="nome">Nome Completo / Razão Social</label>
+      <input type="text" id="nome" required />
+
+      <label for="usuario">Nome de Usuário</label>
+      <input type="text" id="usuario" required />
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" required />
+
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" required />
+
+      <label for="confirmar">Confirmar Senha</label>
+      <input type="password" id="confirmar" required />
+
+      <button type="submit" class="botao-login">Registrar</button>
+
+      <p class="mensagem-sucesso" style="display:none; color:lightgreen; text-align:center;">Conta criada com sucesso!</p>
+      <p class="mensagem-erro" style="display:none; color:red; text-align:center;">As senhas não coincidem.</p>
+    </form>
+
+    <p class="mensagem-registro">
+      Já tem uma conta? <a href="login.html">Faça login</a>
+    </p>
+  </div>
+
+  <script>
+  document.getElementById("form-registro").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const usuario = document.getElementById("usuario").value;
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+    const confirmar = document.getElementById("confirmar").value;
+
+    const erro = document.querySelector(".mensagem-erro");
+    const sucesso = document.querySelector(".mensagem-sucesso");
+
+    if (senha !== confirmar) {
+      erro.textContent = "As senhas não coincidem.";
+      erro.style.display = "block";
+      sucesso.style.display = "none";
+      return;
+    }
+
+    // Enviar dados para o backend
+    fetch("http://localhost:3000/api/usuarios/registro", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nome: nome,
+        usuario: usuario,
+        email: email,
+        senha: senha
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.mensagem === "Usuário registrado com sucesso!") {
+        sucesso.textContent = data.mensagem;
+        sucesso.style.display = "block";
+        erro.style.display = "none";
+
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 2000);
+      } else {
+        erro.textContent = data.mensagem || "Erro ao registrar.";
+        erro.style.display = "block";
+        sucesso.style.display = "none";
+      }
+    })
+    .catch((error) => {
+      console.error("Erro na requisição:", error);
+      erro.textContent = "Erro na conexão com o servidor.";
+      erro.style.display = "block";
+      sucesso.style.display = "none";
+    });
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recuperar Senha | TRONNO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="pagina-login">
+  <div class="container-login">
+    <img src="login.svg" alt="Recuperar senha" class="imagem-login" />
+    <h1>Recuperar Senha</h1>
+
+    <form id="form-recuperar">
+      <label for="identificador">E-mail ou Nome de Usuário</label>
+      <input type="text" id="identificador" required />
+
+      <button type="submit" class="botao-login">Enviar Instruções</button>
+    </form>
+
+    <p class="mensagem-sucesso" style="display:none; color:lightgreen; text-align:center; margin-top: 10px;">
+      Instruções de recuperação enviadas com sucesso.
+    </p>
+    <p class="mensagem-erro" style="display:none; color:red; text-align:center; margin-top: 10px;">
+      Nenhuma conta encontrada com esse e-mail ou usuário.
+    </p>
+
+    <p class="mensagem-registro" style="margin-top: 20px;">
+      Lembrou sua senha? <a href="login.html">Voltar ao login</a>
+    </p>
+  </div>
+
+  <script>
+    document.getElementById("form-recuperar").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const id = document.getElementById("identificador").value.trim().toLowerCase();
+      const usuarioSalvo = JSON.parse(localStorage.getItem("usuarioCadastrado"));
+
+      const encontrou = usuarioSalvo &&
+        (usuarioSalvo.email.toLowerCase() === id || usuarioSalvo.usuario.toLowerCase() === id);
+
+      if (encontrou) {
+        document.querySelector(".mensagem-sucesso").style.display = "block";
+        document.querySelector(".mensagem-erro").style.display = "none";
+        // Simula envio de e-mail (em projeto real, aqui chamaria um backend)
+      } else {
+        document.querySelector(".mensagem-sucesso").style.display = "none";
+        document.querySelector(".mensagem-erro").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

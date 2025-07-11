@@ -11,39 +11,51 @@
     <img src="login.svg" alt="Imagem de login" class="imagem-login" />
     <h1>Login</h1>
     <form id="form-login">
-      <label for="email">E-mail</label>
-      <input type="email" id="email" required />
+      <label for="login">E-mail ou Nome de Usuário</label>
+      <input type="text" id="login" required />
 
       <label for="senha">Senha</label>
       <input type="password" id="senha" required />
 
       <button type="submit" class="botao-login">Entrar</button>
+
+      <p class="mensagem-esqueci">
+        <a href="recuperar.html">Esqueceu sua senha?</a>
+      </p>
+
       <p class="mensagem-registro">
-            Não tem uma conta? <a href="registro.html">Registre-se</a>
-        </p>
+        Não tem uma conta? <a href="registro.html">Registre-se</a>
+      </p>
     </form>
-    <p class="mensagem-erro" style="display:none; color:red; text-align:center;">E-mail ou senha incorretos.</p>
+
+    <p class="mensagem-erro" style="display:none; color:red; text-align:center;">Login ou senha incorretos.</p>
   </div>
 
   <script>
     document.getElementById("form-login").addEventListener("submit", function(e) {
       e.preventDefault();
 
-      const email = document.getElementById("email").value;
+      const login = document.getElementById("login").value.trim().toLowerCase();
       const senha = document.getElementById("senha").value;
 
-      // Exemplo simples de validação fixa
-      if (email === "usuario@tronno.com.br" && senha === "1234") {
+      // Exemplo simples com credenciais fixas
+      const usuarioCadastrado = {
+        usuario: "tronno",
+        email: "usuario@tronno.com.br",
+        senha: "1234"
+      };
+
+      const loginValido = (login === usuarioCadastrado.usuario || login === usuarioCadastrado.email) 
+                          && senha === usuarioCadastrado.senha;
+
+      if (loginValido) {
         sessionStorage.setItem("usuarioLogado", "true");
         const produto = new URLSearchParams(window.location.search).get("produto");
         window.location.href = "pagamento.html" + (produto ? `?produto=${produto}` : "");
-
       } else {
         document.querySelector(".mensagem-erro").style.display = "block";
       }
     });
   </script>
-
-
 </body>
 </html>
