@@ -599,3 +599,161 @@ footer {
 .cta-contato .botao:hover {
   background: white;
 }
+
+/*_______________________________________________________________________________________________________________________________________________*/
+/* Página de Catálogo */
+
+.pagina-catalogo {
+  padding: 60px 20px;
+  background-color: #0b0b0b;
+  color: white;
+  text-align: center;
+  font-family: "Iceland", sans-serif;
+}
+
+.pagina-catalogo h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #c0c0c0;
+}
+
+.pagina-catalogo p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.item-catalogo {
+  background: #3a3a3a;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.item-catalogo:hover {
+  transform: scale(1.02);
+  background: #2a2a2a;
+}
+
+.imagem-produto {
+  background: #777777;
+  border-radius: 10px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  color: #999;
+  font-size: 1rem;
+}
+
+.item-catalogo h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #e0e0e0;
+}
+
+.item-catalogo .descricao {
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+.item-catalogo .disponivel {
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+.botao-compra {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.botao-compra:hover {
+  background-color: #000000;
+  color: #ffffff;
+  transform: scale(1.03);
+}
+
+/*_______________________________________________________________________________________________________________________________________________*/
+/* Página de Pagamento */
+
+.pagina-pagamento {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-pagamento {
+  background-color: #1a1a1a;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.container-pagamento h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #c0c0c0;
+}
+
+.form-pagamento {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-pagamento label {
+  font-weight: bold;
+}
+
+.form-pagamento input,
+.form-pagamento select {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #333;
+  color: #fff;
+}
+
+.form-pagamento input::placeholder {
+  color: #bbb;
+}
+
+.botao-finalizar {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.botao-finalizar:hover {
+  background-color: #3a9e40;
+}
+
+

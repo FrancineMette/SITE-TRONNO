@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pagamento</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body class="pagina-pagamento">
+
+  <div class="container-pagamento">
+    <h1>Finalizar Pagamento</h1>
+    <form class="form-pagamento" action="concluido.html" method="GET">
+      <label for="nome">Nome Completo</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="endereco">Endereço de Entrega</label>
+      <input type="text" id="endereco" name="endereco" required />
+
+      <label for="pagamento">Forma de Pagamento</label>
+      <select id="pagamento" name="pagamento" required>
+        <option value="">Selecione</option>
+        <option value="pix">PIX</option>
+        <option value="boleto">Boleto</option>
+        <option value="cartao">Cartão de Crédito</option>
+      </select>
+
+      <button type="submit" class="botao-finalizar">Finalizar Compra</button>
+    </form>
+  </div>
+
+</body>
+</html>
