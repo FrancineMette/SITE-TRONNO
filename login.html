@@ -31,28 +31,33 @@
     <p class="mensagem-erro" style="display:none; color:red; text-align:center;">Login ou senha incorretos.</p>
   </div>
 
+  <!-- Script de login com API -->
   <script>
-    document.getElementById("form-login").addEventListener("submit", function(e) {
+    document.getElementById("form-login").addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const login = document.getElementById("login").value.trim().toLowerCase();
       const senha = document.getElementById("senha").value;
 
-      // Exemplo simples com credenciais fixas
-      const usuarioCadastrado = {
-        usuario: "tronno",
-        email: "usuario@tronno.com.br",
-        senha: "1234"
-      };
+      try {
+        const resposta = await fetch("https://site-tronno.onrender.com/api/usuarios/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ login, senha })
+        });
 
-      const loginValido = (login === usuarioCadastrado.usuario || login === usuarioCadastrado.email) 
-                          && senha === usuarioCadastrado.senha;
+        const dados = await resposta.json();
 
-      if (loginValido) {
-        sessionStorage.setItem("usuarioLogado", "true");
-        const produto = new URLSearchParams(window.location.search).get("produto");
-        window.location.href = "pagamento.html" + (produto ? `?produto=${produto}` : "");
-      } else {
+        if (resposta.ok) {
+          sessionStorage.setItem("usuarioLogado", "true");
+          window.location.href = "pagamento.html";
+        } else {
+          document.querySelector(".mensagem-erro").style.display = "block";
+        }
+      } catch (erro) {
+        console.error("Erro ao tentar logar:", erro);
         document.querySelector(".mensagem-erro").style.display = "block";
       }
     });
