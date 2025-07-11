@@ -6,6 +6,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const db = require('./src/config/db'); // conexão com o MySQL
 const usuarioRoutes = require('./src/routes/usuarioRoutes');
+app.use('/api/usuarios', usuarioRoutes);
 
 // Configurações
 dotenv.config();
