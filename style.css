@@ -756,4 +756,98 @@ footer {
   background-color: #3a9e40;
 }
 
+/*_______________________________________________________________________________________________________________________________________________*/
+/* Página de Login */
 
+/* Página de Login */
+.pagina-login {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-login {
+  background-color: #1a1a1a;
+  padding: 40px 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.imagem-login {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.container-login h1 {
+  color: #c0c0c0;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+form#form-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+form#form-login label {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+form#form-login input {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+}
+
+.botao-login {
+  background-color: #aaa;
+  color: black;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.botao-login:hover {
+  background-color: #ffffff;
+}
+
+.mensagem-erro {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.mensagem-registro {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: -10px;
+}
+
+.mensagem-registro a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.mensagem-registro a:hover {
+  text-decoration: underline;
+}
