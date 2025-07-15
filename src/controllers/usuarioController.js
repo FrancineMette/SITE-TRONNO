@@ -14,18 +14,32 @@ exports.registrar = async (req, res) => {
   }
 };
 
+const jwt = require('jsonwebtoken');
+
 exports.login = async (req, res) => {
   const { login, senha } = req.body;
 
   try {
     const results = await Usuario.buscarPorEmailOuUsuario(login);
-    if (results.length === 0) return res.status(401).json({ mensagem: 'Usuário não encontrado' });
+    if (results.length === 0) 
+      return res.status(401).json({ mensagem: 'Usuário não encontrado' });
 
     const usuario = results[0];
     const isMatch = await bcrypt.compare(senha, usuario.senha);
 
     if (isMatch) {
-      return res.status(200).json({ mensagem: 'Login bem-sucedido!', usuario: usuario.nome_completo });
+      // 🔐 Gerar o token JWT
+      const token = jwt.sign(
+        { id: usuario.id, nome_completo: usuario.nome_completo },
+        process.env.JWT_SECRET,
+        { expiresIn: process.env.JWT_EXPIRES_IN || '1d' }
+      );
+
+      return res.status(200).json({ 
+        mensagem: 'Login bem-sucedido!', 
+        usuario: usuario.nome_completo,
+        token // ⚠️ FRONT vai guardar isso!
+      });
     } else {
       return res.status(401).json({ mensagem: 'Senha incorreta' });
     }
