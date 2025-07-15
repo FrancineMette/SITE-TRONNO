@@ -66,9 +66,15 @@
   },
   body: JSON.stringify({ nome, usuario, email, senha })
 })
-.then(res => res.json())
+.then(async res => {
+  if (!res.ok) {
+    const errorText = await res.text(); // Lê como texto, já que não é JSON
+    throw new Error(errorText);
+  }
+  return res.json(); // Só tenta parsear se a resposta estiver ok
+})
 .then(data => {
-  console.log("Resposta do servidor:", data); // <-- isso te ajuda a ver se deu certo
+  console.log("Resposta do servidor:", data);
 
   if (data.mensagem === "Usuário registrado com sucesso!") {
     sucesso.textContent = data.mensagem;
@@ -86,7 +92,7 @@
 })
 .catch((error) => {
   console.error("Erro na requisição:", error);
-  erro.textContent = "Erro na conexão com o servidor.";
+  erro.textContent = error.message || "Erro na conexão com o servidor.";
   erro.style.display = "block";
   sucesso.style.display = "none";
 });
