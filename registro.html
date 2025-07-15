@@ -64,11 +64,8 @@
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        nome_completo: nome,
-        nome_usuario: usuario,
-        email: email,
-        senha: senha
+      body: JSON.stringify({ nome, usuario, email, senha })
+
       })
 
     })
