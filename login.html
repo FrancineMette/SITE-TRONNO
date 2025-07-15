@@ -8,7 +8,6 @@
 </head>
 <body class="pagina-login">
   <div class="container-login">
-    <img src="login.svg" alt="Imagem de login" class="imagem-login" />
     <h1>Login</h1>
     <form id="form-login">
       <label for="login">E-mail ou Nome de Usuário</label>
@@ -19,19 +18,10 @@
 
       <button type="submit" class="botao-login">Entrar</button>
 
-      <p class="mensagem-esqueci">
-        <a href="recuperar.html">Esqueceu sua senha?</a>
-      </p>
-
-      <p class="mensagem-registro">
-        Não tem uma conta? <a href="registro.html">Registre-se</a>
-      </p>
+      <p class="mensagem-erro" style="display:none; color:red; text-align:center;">Login ou senha incorretos.</p>
     </form>
-
-    <p class="mensagem-erro" style="display:none; color:red; text-align:center;">Login ou senha incorretos.</p>
   </div>
 
-  <!-- Script de login com API -->
   <script>
     document.getElementById("form-login").addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -42,17 +32,16 @@
       try {
         const resposta = await fetch("https://site-tronno.onrender.com/api/usuarios/login", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ login, senha })
         });
 
         const dados = await resposta.json();
 
-        if (resposta.ok) {
-          sessionStorage.setItem("usuarioLogado", "true");
-          window.location.href = "pagamento.html";
+        if (resposta.ok && dados.token) {
+          localStorage.setItem("token", dados.token);
+          localStorage.setItem("usuario", dados.usuario);
+          window.location.href = "painel.html";
         } else {
           document.querySelector(".mensagem-erro").style.display = "block";
         }
