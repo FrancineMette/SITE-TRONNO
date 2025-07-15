@@ -7,9 +7,13 @@ exports.registrar = (req, res) => {
   bcrypt.hash(senha, 10, (err, hash) => {
     if (err) return res.status(500).send('Erro ao criptografar a senha');
 
-    Usuario.criar({ nome: nome_completo, usuario, email, senha: hash }, (err, result) => {
-      if (err) return res.status(500).send('Erro ao registrar usuário');
-      res.status(201).json({ mensagem: 'Usuário registrado com sucesso!' });
+    Usuario.criar({ nome_completo, usuario, email, senha: hash }, (err, result) => {
+      if (err) {
+        console.error('Erro do MySQL:', err);
+        return res.status(500).json({ mensagem: 'Erro ao registrar usuário', erro: err.sqlMessage });
+        }
+      
+      return res.status(201).json({ mensagem: 'Usuário registrado com sucesso!' });
     });
   });
 };
@@ -26,7 +30,8 @@ exports.login = (req, res) => {
 
     bcrypt.compare(senha, usuario.senha, (err, isMatch) => {
       if (isMatch) {
-        res.status(200).json({ mensagem: 'Login bem-sucedido!', usuario: usuario.nome });
+        res.status(200).json({ mensagem: 'Login bem-sucedido!', usuario: usuario.nome_completo });
+
       } else {
         res.status(401).json({ mensagem: 'Senha incorreta' });
       }
