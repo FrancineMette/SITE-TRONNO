@@ -60,38 +60,38 @@
 
     // Enviar dados para o backend
     fetch("https://site-tronno.onrender.com/api/usuarios/registro", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ nome, usuario, email, senha })
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ nome, usuario, email, senha })
+})
+.then(res => res.json())
+.then(data => {
+  console.log("Resposta do servidor:", data); // <-- isso te ajuda a ver se deu certo
 
-      })
+  if (data.mensagem === "Usuário registrado com sucesso!") {
+    sucesso.textContent = data.mensagem;
+    sucesso.style.display = "block";
+    erro.style.display = "none";
 
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.mensagem === "Usuário registrado com sucesso!") {
-        sucesso.textContent = data.mensagem;
-        sucesso.style.display = "block";
-        erro.style.display = "none";
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 2000);
+  } else {
+    erro.textContent = data.mensagem || "Erro ao registrar.";
+    erro.style.display = "block";
+    sucesso.style.display = "none";
+  }
+})
+.catch((error) => {
+  console.error("Erro na requisição:", error);
+  erro.textContent = "Erro na conexão com o servidor.";
+  erro.style.display = "block";
+  sucesso.style.display = "none";
+});
 
-        setTimeout(() => {
-          window.location.href = "login.html";
-        }, 2000);
-      } else {
-        erro.textContent = data.mensagem || "Erro ao registrar.";
-        erro.style.display = "block";
-        sucesso.style.display = "none";
-      }
-    })
-    .catch((error) => {
-      console.error("Erro na requisição:", error);
-      erro.textContent = "Erro na conexão com o servidor.";
-      erro.style.display = "block";
-      sucesso.style.display = "none";
-    });
-  });
+});
 </script>
 
 
