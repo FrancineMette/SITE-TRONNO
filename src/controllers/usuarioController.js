@@ -2,12 +2,12 @@ const bcrypt = require('bcrypt');
 const Usuario = require('../models/Usuario');
 
 exports.registrar = (req, res) => {
-  const { nome, usuario, email, senha } = req.body;
+  const { nome_completo, usuario, email, senha } = req.body;
 
   bcrypt.hash(senha, 10, (err, hash) => {
     if (err) return res.status(500).send('Erro ao criptografar a senha');
 
-    Usuario.criar({ nome, usuario, email, senha: hash }, (err, result) => {
+    Usuario.criar({ nome: nome_completo, usuario, email, senha: hash }, (err, result) => {
       if (err) return res.status(500).send('Erro ao registrar usuário');
       res.status(201).json({ mensagem: 'Usuário registrado com sucesso!' });
     });
