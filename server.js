@@ -1,18 +1,18 @@
-// server.js
-
 const express = require('express');
 const app = express();
-const cors = require('cors');
+const cors = require('cors'); // <- já está certo
 const dotenv = require('dotenv');
-const db = require('./src/config/db'); // conexão com o MySQL
-const usuarioRoutes = require('./src/routes/usuarioRoutes');
-app.use('/api/usuarios', usuarioRoutes);
-
-// Configurações
 dotenv.config();
 
-// Middlewares
-app.use(cors());
+const usuarioRoutes = require('./src/routes/usuarioRoutes');
+
+// ✅ Habilita CORS ANTES de qualquer rota
+app.use(cors({
+  origin: '*', // ou coloque o seu domínio aqui
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
