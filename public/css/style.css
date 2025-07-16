@@ -842,6 +842,30 @@ body.pagina-login {
   background-color: #919191;
 }
 
+/* Estilo exclusivo para a página de recuperar senha */
+.container-recuperar {
+  background-color: #222; /* mais escuro, por exemplo */
+  max-width: 500px;
+  margin-top: 160px;
+  margin-bottom: 12rem;
+  padding: 50px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.07);
+}
+
+.container-recuperar h1 {
+  font-size: 1.8rem;
+  color: #c0c0c0;
+}
+
+.container-recuperar .botao-login {
+  background-color: #c0c0c0;
+  color: #000;
+}
+
+.container-recuperar .botao-login:hover {
+  background-color: #ffffff;
+}
+
 .mensagem-esqueci {
   margin-top: 10px;
   font-size: 0.95rem;
