@@ -38,4 +38,6 @@ router.post('/verificar', usuarioController.verificar);
 router.post('/enviar-recuperacao', usuarioController.enviarRecuperacao);
 router.post('/redefinir-senha', usuarioController.redefinirSenha);
 
-// ✅ Adicione
+router.get('/teste-email', usuarioController.enviarTesteEmail);
+
+module.exports = router;
