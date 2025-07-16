@@ -17,7 +17,7 @@ document.getElementById("form-login").addEventListener("submit", async function 
     if (resposta.ok && dados.token) {
       localStorage.setItem("token", dados.token);
       localStorage.setItem("usuario", dados.usuario);
-      window.location.href = "painelcliente.html";
+      window.location.href = "https://tronno.com.br/painelcliente.html";
     } else {
       document.querySelector(".mensagem-erro").style.display = "block";
     }
