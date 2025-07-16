@@ -31,6 +31,6 @@ window.addEventListener('DOMContentLoaded', () => {
   botaoWhats.className = 'whatsapp-button';
   botaoWhats.target = '_blank';
   botaoWhats.setAttribute('aria-label', 'Fale conosco no WhatsApp');
-  botaoWhats.innerHTML = '<img src="../imagens/whatsapp.png" alt="WhatsApp">';
+  botaoWhats.innerHTML = '<img src="/imagens/whatsapp.png" alt="WhatsApp">';
   document.body.appendChild(botaoWhats);
 });
