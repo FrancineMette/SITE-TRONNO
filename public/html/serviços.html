@@ -79,24 +79,8 @@
 
   <a href="#" class="voltar-topo" aria-label="Voltar ao topo">↑</a>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu-lateral');
-      menu.style.width = (menu.style.width === '250px') ? '0' : '250px';
-    }
-
-    const botaoTopo = document.querySelector('.voltar-topo');
-    window.addEventListener('scroll', function () {
-      botaoTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-  </script>
-
-  <script>
-  function toggleMenu() {
-    const menu = document.getElementById('menu-lateral');
-    menu.classList.toggle('aberto');
-  }
-</script>
-
+ <a href="#" class="voltar-topo">↑</a>
+ <script src="../js/global.js"></script>
+ 
 </body>
 </html>
