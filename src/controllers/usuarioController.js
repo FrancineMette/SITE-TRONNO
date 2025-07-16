@@ -116,6 +116,9 @@ exports.redefinirSenha = async (req, res) => {
     return res.status(200).json({ mensagem: 'Senha atualizada com sucesso' });
   } catch (err) {
     console.error('Erro ao redefinir senha:', err);
-    return res.status(400).json({ mensagem: 'Token inválido ou expirado' });
+    return res.status(400).json({ mensagem: 'Token inválido ou expirado'});
   }
 };
+    
+
+

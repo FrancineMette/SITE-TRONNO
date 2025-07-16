@@ -17,10 +17,14 @@ exports.enviarLinkRecuperacao = async (email, token) => {
       `
     });
 
-    console.log("Email enviado:", resposta);
+    // 🧪 Logs úteis para depuração
+    console.log("📨 Tentando enviar para:", email);
+    console.log("🔗 Link de redefinição:", link);
+    console.log("📬 Resposta da Resend:", JSON.stringify(resposta, null, 2));
+
     return resposta;
   } catch (error) {
-    console.error("Erro ao enviar e-mail:", error);
+    console.error("❌ Erro ao enviar e-mail:", error);
     throw error;
   }
 };
