@@ -506,7 +506,7 @@ footer {
 .pagina-servicos {
   padding: 60px 20px;
   color: white;
-  background-image: url('sea.png');
+  background-image: url('../imagens/sea.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -767,7 +767,7 @@ footer {
 /*_______________________________________________________________________________________________________________________________________________*/
 /* Página de Registro/Login */
 .pagina-login {
-  background: url('Sistema3.png') rgb(0, 0, 0);
+  background: url('../imagens/Sistema3.png') rgb(0, 0, 0);
   background-size: 900px 850px;
   background-repeat: no-repeat;
   background-position: center bottom;

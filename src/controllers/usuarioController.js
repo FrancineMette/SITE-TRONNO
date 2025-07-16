@@ -18,9 +18,13 @@ const jwt = require('jsonwebtoken');
 
 exports.login = async (req, res) => {
   const { login, senha } = req.body;
+  const loginTrim = login.trim(); 
+
+  console.log("Login recebido:", login);
+  console.log("Login tratado:", loginTrim);
 
   try {
-    const results = await Usuario.buscarPorEmailOuUsuario(login);
+    const results = await Usuario.buscarPorEmailOuUsuario(loginTrim);
     if (results.length === 0) 
       return res.status(401).json({ mensagem: 'Usuário não encontrado' });
 
