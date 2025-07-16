@@ -119,6 +119,31 @@ exports.redefinirSenha = async (req, res) => {
     return res.status(400).json({ mensagem: 'Token inválido ou expirado'});
   }
 };
+
+const { Resend } = require('resend');
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+exports.enviarTesteEmail = async (req, res) => {
+  try {
+    const resposta = await resend.emails.send({
+      from: 'Tronno <onboarding@resend.dev>', // você pode trocar por helpdesk@tronno.com.br depois
+      to: 'seu-email@exemplo.com', // troque pelo seu e-mail real para testar
+      subject: 'Teste de Envio - TRONNO',
+      html: `
+        <h1>Teste de Envio</h1>
+        <p>Este é um e-mail de teste enviado via Resend API.</p>
+      `
+    });
+
+    console.log("📬 Resposta do envio:", JSON.stringify(resposta, null, 2));
+
+    res.status(200).json({ sucesso: true, resposta });
+  } catch (error) {
+    console.error("❌ Erro ao enviar teste:", error);
+    res.status(500).json({ erro: 'Falha ao enviar e-mail de teste' });
+  }
+};
+
     
 
 
