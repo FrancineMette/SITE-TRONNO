@@ -60,25 +60,34 @@
     </p>
   </div>
 
-  <script>
-    document.getElementById("form-recuperar").addEventListener("submit", function(e) {
-      e.preventDefault();
+ <script>
+  document.getElementById("form-recuperar").addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-      const id = document.getElementById("identificador").value.trim().toLowerCase();
-      const usuarioSalvo = JSON.parse(localStorage.getItem("usuarioCadastrado"));
+    const id = document.getElementById("identificador").value.trim().toLowerCase();
 
-      const encontrou = usuarioSalvo &&
-        (usuarioSalvo.email.toLowerCase() === id || usuarioSalvo.usuario.toLowerCase() === id);
+    try {
+      const resposta = await fetch("https://site-tronno.onrender.com/api/usuarios/verificar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identificador: id })
+      });
 
-      if (encontrou) {
+      if (resposta.ok) {
         document.querySelector(".mensagem-sucesso").style.display = "block";
         document.querySelector(".mensagem-erro").style.display = "none";
-        // Simula envio de e-mail (em projeto real, aqui chamaria um backend)
       } else {
         document.querySelector(".mensagem-sucesso").style.display = "none";
         document.querySelector(".mensagem-erro").style.display = "block";
       }
-    });
-  </script>
+    } catch (erro) {
+      console.error("Erro ao verificar usuário:", erro);
+      document.querySelector(".mensagem-sucesso").style.display = "none";
+      document.querySelector(".mensagem-erro").style.display = "block";
+    }
+  });
+</script>
+
+
 </body>
 </html>

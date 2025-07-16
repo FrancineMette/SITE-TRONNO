@@ -14,4 +14,10 @@ router.get('/', (req, res) => {
   res.send('Rota de usuários funcionando!');
 });
 
+router.post('/verificar', usuarioController.verificar);
+
+router.post('/enviar-recuperacao', usuarioController.enviarRecuperacao);
+
+router.post('/redefinir-senha', usuarioController.redefinirSenha);
+
 module.exports = router;

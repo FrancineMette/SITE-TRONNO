@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redefinir Senha | TRONNO</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="pagina-login">
+  <div class="container-login">
+    <h1>Redefinir Senha</h1>
+    <form id="form-redefinir">
+      <label for="novaSenha">Nova Senha</label>
+      <input type="password" id="novaSenha" required />
+
+      <button type="submit" class="botao-login">Salvar nova senha</button>
+    </form>
+
+    <p class="mensagem-sucesso" style="display:none; color:lightgreen; text-align:center;">
+      Senha redefinida com sucesso!
+    </p>
+    <p class="mensagem-erro" style="display:none; color:red; text-align:center;">
+      Erro ao redefinir a senha.
+    </p>
+  </div>
+
+  <script>
+    document.getElementById("form-redefinir").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const novaSenha = document.getElementById("novaSenha").value;
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get("token");
+
+      try {
+        const res = await fetch("https://site-tronno.onrender.com/api/usuarios/redefinir-senha", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ novaSenha, token })
+        });
+
+        if (res.ok) {
+            document.querySelector(".mensagem-sucesso").style.display = "block";
+            document.querySelector(".mensagem-erro").style.display = "none";
+
+  // Redirecionar para login após 3 segundos
+        setTimeout(() => {
+            window.location.href = "/public/html/login.html";
+        }, 3000);
+        
+    } else {
+        document.querySelector(".mensagem-sucesso").style.display = "none";
+        document.querySelector(".mensagem-erro").style.display = "block";
+      }
+    } catch (erro) {
+      console.error("Erro ao redefinir senha:", erro);
+      document.querySelector(".mensagem-sucesso").style.display = "none";
+      document.querySelector(".mensagem-erro").style.display = "block";
+    }
+    });
+  </script>
+</body>
+</html>

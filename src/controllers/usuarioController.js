@@ -52,3 +52,70 @@ exports.login = async (req, res) => {
     return res.status(500).json({ mensagem: 'Erro no login', erro: err.sqlMessage || err.message });
   }
 };
+
+exports.verificar = async (req, res) => {
+  const { identificador } = req.body;
+
+  try {
+    const results = await Usuario.buscarPorEmailOuUsuario(identificador.trim());
+    if (results.length > 0) {
+      return res.status(200).json({ mensagem: 'Usuário encontrado' });
+    } else {
+      return res.status(404).json({ mensagem: 'Usuário não encontrado' });
+    }
+  } catch (err) {
+    console.error('Erro ao verificar usuário:', err);
+    return res.status(500).json({ mensagem: 'Erro interno', erro: err.message });
+  }
+};
+
+const { enviarLinkRecuperacao } = require('../utils/emailService');
+const jwt = require('jsonwebtoken');
+
+exports.enviarRecuperacao = async (req, res) => {
+  const { identificador } = req.body;
+
+  try {
+    const results = await Usuario.buscarPorEmailOuUsuario(identificador.trim());
+    if (results.length === 0)
+      return res.status(404).json({ mensagem: 'Usuário não encontrado' });
+
+    const usuario = results[0];
+
+    const token = jwt.sign(
+      { id: usuario.id },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    await enviarLinkRecuperacao(usuario.email, token);
+    return res.status(200).json({ mensagem: 'Link de recuperação enviado!' });
+  } catch (err) {
+    console.error('Erro ao enviar recuperação:', err);
+    return res.status(500).json({ mensagem: 'Erro interno', erro: err.message });
+  }
+};
+
+exports.redefinirSenha = async (req, res) => {
+  const { token, novaSenha } = req.body;
+
+  try {
+    // Verifica se já foi usado
+    const jaUsado = await Usuario.tokenJaUsado(token);
+    if (jaUsado) {
+      return res.status(400).json({ mensagem: 'Token já foi utilizado.' });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const hash = await bcrypt.hash(novaSenha, 10);
+    await Usuario.atualizarSenha(decoded.id, hash);
+
+    // Invalida o token
+    await Usuario.invalidarToken(token);
+
+    return res.status(200).json({ mensagem: 'Senha atualizada com sucesso' });
+  } catch (err) {
+    console.error('Erro ao redefinir senha:', err);
+    return res.status(400).json({ mensagem: 'Token inválido ou expirado' });
+  }
+};
