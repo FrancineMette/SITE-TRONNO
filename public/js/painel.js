@@ -1,3 +1,4 @@
+/*painel.js*/
 const token = localStorage.getItem('token');
 const usuario = localStorage.getItem('usuario');
 

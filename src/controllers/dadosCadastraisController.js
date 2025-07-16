@@ -1,3 +1,4 @@
+/*dadosCadastraisController.js*/
 const DadosCadastrais = require('../models/DadosCadastrais');
 
 exports.criar = (req, res) => {

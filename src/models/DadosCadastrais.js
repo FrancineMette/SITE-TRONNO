@@ -1,3 +1,4 @@
+/*DadosCadastrais.js em models*/
 const db = require('../config/db');
 
 const DadosCadastrais = {

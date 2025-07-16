@@ -1,3 +1,5 @@
+/*Usuario.js*/
+
 const db = require('../config/db');
 
 const Usuario = {
