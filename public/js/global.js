@@ -23,3 +23,14 @@ function toggleMenu() {
     menu.classList.toggle('aberto');
   }
 }
+
+// Inserir botão WhatsApp
+window.addEventListener('DOMContentLoaded', () => {
+  const botaoWhats = document.createElement('a');
+  botaoWhats.href = 'https://wa.me/5547992386012';
+  botaoWhats.className = 'whatsapp-button';
+  botaoWhats.target = '_blank';
+  botaoWhats.setAttribute('aria-label', 'Fale conosco no WhatsApp');
+  botaoWhats.innerHTML = '<img src="../imagens/whatsapp.png" alt="WhatsApp">';
+  document.body.appendChild(botaoWhats);
+});
