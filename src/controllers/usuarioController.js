@@ -70,7 +70,7 @@ exports.verificar = async (req, res) => {
 };
 
 const { enviarLinkRecuperacao } = require('../utils/emailService');
-const jwt = require('jsonwebtoken');
+
 
 exports.enviarRecuperacao = async (req, res) => {
   const { identificador } = req.body;
