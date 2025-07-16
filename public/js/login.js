@@ -1,26 +1,27 @@
-document.querySelector('form').addEventListener('submit', function (e) {
+document.getElementById("form-login").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  const login = document.getElementById('login').value;
-  const senha = document.getElementById('senha').value;
+  const login = document.getElementById("login").value.trim().toLowerCase();
+  const senha = document.getElementById("senha").value;
 
-  fetch('https://site-tronno.onrender.com/api/usuarios/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ login, senha })
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.token) {
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('usuario', data.usuario);
-      window.location.href = 'painel.html';
+  try {
+    const resposta = await fetch("https://site-tronno.onrender.com/api/usuarios/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ login, senha })
+    });
+
+    const dados = await resposta.json();
+
+    if (resposta.ok && dados.token) {
+      localStorage.setItem("token", dados.token);
+      localStorage.setItem("usuario", dados.usuario);
+      window.location.href = "painel.html";
     } else {
-      alert(data.mensagem || 'Erro no login');
+      document.querySelector(".mensagem-erro").style.display = "block";
     }
-  })
-  .catch(err => {
-    console.error('Erro na requisição:', err);
-    alert('Erro na requisição');
-  });
+  } catch (erro) {
+    console.error("Erro ao tentar logar:", erro);
+    document.querySelector(".mensagem-erro").style.display = "block";
+  }
 });

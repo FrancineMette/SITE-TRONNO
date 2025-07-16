@@ -4,53 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login | TRONNO</title>
-  <link rel="stylesheet" href="/public/css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  
 </head>
+
+
 <body class="pagina-login">
+
+  <header>
+    <img src="../imagens/LOGO TRONNO SVG.svg" alt="Logo TRONNO Tecnologia Naval" class="logo" />
+    <div class="menu-direito">
+
+      <nav class="desktop-menu">
+        <ul>
+          <li><a href="../html/index.html">Início</a></li>
+          <li><a href="../html/index.html#sobre">Sobre Nós</a></li>
+          <li><a href="../html/catalogo.html">Catálogo</a></li>
+          <li><a href="../html/serviços.html">Serviços</a></li>
+          <li><a href="../html/index.html#contato">Contato</a></li>
+          <li><a href="../html/login.html" class="btn-login">Entrar</a></li>
+        </ul>
+      </nav>
+      
+      
+      
+      <div class="hamburguer" onclick="toggleMenu()">☰</div>
+    </div> 
+
+        <div id="menu-lateral" class="menu-lateral">
+          <a href="../html/index.html">Início</a>
+          <a href="#sobre">Sobre Nós</a>
+          <a href="../html/catalogo.html">Catálogo</a>
+          <a href="../html/serviços.html">Serviços</a>
+          <a href="#contato">Contato</a>
+          <a href="../html/login.html">Entrar</a>
+        </div>
+  </header>
   <div class="container-login">
-    <img src="/public/imagens/login.svg" alt="Recuperar senha" class="imagem-login" />
+    <img src="../imagens/login.svg" alt="Recuperar senha" class="imagem-login" />
     <h1>Login</h1>
-    <form id="form-login">
-      <label for="login">E-mail ou Nome de Usuário</label>
-      <input type="text" id="login" required />
-
-      <label for="senha">Senha</label>
-      <input type="password" id="senha" required />
-
-      <button type="submit" class="botao-login">Entrar</button>
-
-      <p class="mensagem-erro" style="display:none; color:red; text-align:center;">Login ou senha incorretos.</p>
-    </form>
+        <form id="form-login">
+          <label for="login">E-mail ou Nome de Usuário</label>
+          <input type="text" id="login" required />
+        
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" required />
+        
+          <button type="submit" class="botao-login">Entrar</button>
+        
+          <p class="mensagem-erro" style="display:none; color:red; text-align:center;">Login ou senha incorretos.</p>
+        
+        </form>
+      
+        <div class="mensagem-esqueci">
+          <a href="../html/recuperar.html">Esqueci minha senha</a>
+        </div>
+      
+        <div class="mensagem-registro">
+          <span>Não tem uma conta? <a href="../html/registro.html">Cadastre-se aqui</a></span>
+        </div>
+  
   </div>
 
-  <script>
-    document.getElementById("form-login").addEventListener("submit", async function (e) {
-      e.preventDefault();
-
-      const login = document.getElementById("login").value.trim().toLowerCase();
-      const senha = document.getElementById("senha").value;
-
-      try {
-        const resposta = await fetch("https://site-tronno.onrender.com/api/usuarios/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ login, senha })
-        });
-
-        const dados = await resposta.json();
-
-        if (resposta.ok && dados.token) {
-          localStorage.setItem("token", dados.token);
-          localStorage.setItem("usuario", dados.usuario);
-          window.location.href = "painel.html";
-        } else {
-          document.querySelector(".mensagem-erro").style.display = "block";
-        }
-      } catch (erro) {
-        console.error("Erro ao tentar logar:", erro);
-        document.querySelector(".mensagem-erro").style.display = "block";
-      }
-    });
-  </script>
+   <script src="../js/login.js"></script>
+  
 </body>
 </html>
