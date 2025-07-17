@@ -10,8 +10,8 @@ const usuarioRoutes = require('./src/routes/usuarioRoutes');
 
 // ✅ Habilita CORS ANTES de qualquer rota
 app.use(cors({
-  origin: '*', // ou coloque o seu domínio aqui
-  methods: ['GET', 'POST'],
+  origin: ['https://tronno.com.br'],
+  methods: ['POST'],
   allowedHeaders: ['Content-Type']
 }));
 
