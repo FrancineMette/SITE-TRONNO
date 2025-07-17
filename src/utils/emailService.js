@@ -3,7 +3,8 @@ const { Resend } = require('resend');
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 exports.enviarLinkRecuperacao = async (email, token) => {
-  const link = `https://site-tronno.com.br/redefinir.html?token=${token}`;
+  const link = `https://tronno.com.br/redefinir.html?token=${token}`;
+
 
   try {
     const resposta = await resend.emails.send({
