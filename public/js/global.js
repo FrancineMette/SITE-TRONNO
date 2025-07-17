@@ -47,4 +47,15 @@ document.addEventListener("DOMContentLoaded", function () {
       menu.classList.toggle('aberto');
     }
   }
+  
+  document.addEventListener('click', function(event) {
+    const menu = document.getElementById('menu-lateral');
+    const btn = document.getElementById('menu-hamburguer');
+    
+    if(menu.classList.contains('aberto') && !menu.contains(event.target) && event.target !== btn) {
+      menu.classList.remove('aberto');
+    }
+  });
+  
+  
 });
