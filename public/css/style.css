@@ -844,7 +844,7 @@ body.pagina-login {
 
 /* Estilo exclusivo para a página de recuperar senha */
 .container-recuperar {
-  background-color: #222; /* mais escuro, por exemplo */
+  background-color: #1a1a1a;
   max-width: 500px;
   margin-top: 160px;
   margin-bottom: 12rem;
