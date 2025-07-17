@@ -7,7 +7,7 @@ exports.enviarLinkRecuperacao = async (email, token) => {
 
   try {
     const resposta = await resend.emails.send({
-      from: 'Tronno <onboarding@resend.dev>',
+      from: 'Tronno <helpdesk@tronno.com.br>',
       to: email,
       subject: 'Redefinição de Senha - Tronno',
       html: `
