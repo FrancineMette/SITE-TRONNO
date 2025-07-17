@@ -13,30 +13,30 @@
     <img src="../imagens/LOGO TRONNO SVG.svg" alt="Logo TRONNO Tecnologia Naval" class="logo" />
     <div class="menu-direito">
 
-      <nav class="desktop-menu">
+       <nav class="desktop-menu">
         <ul>
           <li><a href="../html/index.html">Início</a></li>
           <li><a href="../html/index.html#sobre">Sobre Nós</a></li>
           <li><a href="../html/catalogo.html">Catálogo</a></li>
           <li><a href="../html/serviços.html">Serviços</a></li>
           <li><a href="../html/index.html#contato">Contato</a></li>
-          <li><a href="../html/login.html" class="btn-login">Entrar</a></li>
+          <li><a id="btn-login" href="/login.html">Entrar</a></li>
+          <li><a id="btn-logout" style="display: none; margin-left: 1rem; cursor: pointer;">Sair</a></li>
         </ul>
       </nav>
-      
-      
-      
-      <div class="hamburguer" onclick="toggleMenu()">☰</div>
-    </div> 
 
-        <div id="menu-lateral" class="menu-lateral">
-          <a href="../html/index.html">Início</a>
-          <a href="../html/index.html#sobre">Sobre Nós</a>
-          <a href="../html/catalogo.html">Catálogo</a>
-          <a href="../html/serviços.html">Serviços</a>
-          <a href="../html/index.html#contato">Contato</a>
-          <a href="../html/login.html">Entrar</a>
-        </div>
+      <div class="hamburguer" onclick="toggleMenu()">☰</div>
+                
+              <div id="menu-lateral" class="menu-lateral">
+                <a href="../html/index.html">Início</a>
+                <a href="../html/index.html#sobre">Sobre Nós</a>
+                <a href="../html/catalogo.html">Catálogo</a>
+                <a href="../html/serviços.html">Serviços</a>
+                <a href="../html/index.html#contato">Contato</a>
+                <a id="btn-login" href="/login.html">Entrar</a>
+                <a id="btn-logout" style="display: none; margin-left: 1rem; cursor: pointer;">Sair</a>
+              
+              </div>
   </header>
   
   <div class="container-login container-recuperar">
