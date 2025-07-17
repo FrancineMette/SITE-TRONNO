@@ -69,7 +69,7 @@
     const id = document.getElementById("identificador").value.trim().toLowerCase();
 
     try {
-      const resposta = await fetch("https://site-tronno.onrender.com/api/usuarios/verificar", {
+      const resposta = await fetch("https://site-tronno.onrender.com/api/usuarios/enviar-recuperacao", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ identificador: id })
