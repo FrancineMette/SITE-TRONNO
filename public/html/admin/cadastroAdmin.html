@@ -1,23 +1,78 @@
-<!-- public/html/admin/cadastro-admin.html -->
+<!-- cadastroAdmin.html -->
+ 
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Cadastrar Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro | TRONNO</title>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
-<body>
-  <h1>Cadastro de Admin</h1>
+<body class="pagina-login">
+   <header>
+    <img src="../imagens/LOGO TRONNO SVG.svg" alt="Logo TRONNO Tecnologia Naval" class="logo" />
+    <div class="menu-direito">
 
-  <form id="form-loginAdmin">
-    <input type="text" id="nome" placeholder="Nome" required /><br/>
-    <input type="email" id="email" placeholder="E-mail" required /><br/>
-    <input type="password" id="senha" placeholder="Senha" required minlength="6"/><br/>
-    <button type="submit">Cadastrar</button>
-  </form>
+       <nav class="desktop-menu">
+        <ul>
+          <li><a href="../html/index.html">Início</a></li>
+          <li><a href="../html/index.html#sobre">Sobre Nós</a></li>
+          <li><a href="../html/catalogo.html">Catálogo</a></li>
+          <li><a href="../html/serviços.html">Serviços</a></li>
+          <li><a href="../html/index.html#contato">Contato</a></li>
+          <li><a id="btn-login" href="../html/login.html">Entrar</a></li>
+        </ul>
+      </nav>
 
-  <p class="mensagem-erro" style="color:red; display:none;"></p>
-  <p class="mensagem-sucesso" style="color:green; display:none;"></p>
+      <div id="menu-hamburguer" class="hamburguer">☰</div>
 
-  <script src="/js/admin/loginAdmin.js"></script>
+          <div id="menu-lateral" class="menu-lateral">
+            <a href="../html/index.html">Início</a>
+            <a href="../html/index.html#sobre">Sobre Nós</a>
+            <a href="../html/catalogo.html">Catálogo</a>
+            <a href="../html/serviços.html">Serviços</a>
+            <a href="../html/index.html#contato">Contato</a>
+            <a id="btn-login" href="../html/login.html">Entrar</a>
+            <a class="btn-logout" style="display: none;">Sair</a>         
+          </div>
+  </header>
+
+  <div class="container-login">
+    <img src="../imagens/login.svg" alt="Imagem de registro" class="imagem-login" />
+    <h1>Cadastro de Administrador</h1>
+
+    <form id="form-admin-cadastro">
+      <label for="nome">Nome Completo</label>
+      <input type="text" id="nome" required />
+
+      <label for="usuario">Nome de Usuário</label>
+      <input type="text" id="usuario" required />
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" required />
+
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" required />
+
+      <label for="confirmar">Confirmar Senha</label>
+      <input type="password" id="confirmar" required />
+
+      <button type="submit" class="botao-login">Registrar</button>
+
+      <p class="mensagem-sucesso" style="display:none; color:lightgreen; text-align:center;">Conta criada com sucesso!</p>
+      <p class="mensagem-erro" style="display:none; color:red; text-align:center;">As senhas não coincidem.</p>
+    </form>
+
+    </div>
+
+    <script src="../js/loginAdmin.js"></script>
+
+<a href="https://wa.me/5547992386012" class="whatsapp-button" target="_blank" aria-label="Fale conosco no WhatsApp">
+    <img src="../imagens/whatsapp.png" alt="WhatsApp" />
+  </a>
+  
+<a href="#" class="voltar-topo">↑</a>
+<script src="../js/global.js"></script>
+
 </body>
 </html>

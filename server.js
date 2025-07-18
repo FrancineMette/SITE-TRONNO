@@ -36,38 +36,9 @@ async function getPool() {
 }
 
 // Rota para cadastrar admin
-app.post('/api/admin/cadastrar', async (req, res) => {
-  const { nome, email, senha } = req.body;
+const adminRoutes = require('./src/routes/adminRoutes');
+app.use('/api/admin', adminRoutes);
 
-  if (!nome || !email || !senha) {
-    return res.status(400).json({ erro: 'Preencha todos os campos' });
-  }
-  if (senha.length < 6) {
-    return res.status(400).json({ erro: 'Senha deve ter pelo menos 6 caracteres' });
-  }
-
-  try {
-    const pool = await getPool();
-
-    const [rows] = await pool.query('SELECT id FROM admins WHERE email = ?', [email]);
-    if (rows.length > 0) {
-      return res.status(409).json({ erro: 'Email já cadastrado' });
-    }
-
-    const hashSenha = await bcrypt.hash(senha, 10);
-
-    await pool.query('INSERT INTO admins (nome, email, senha) VALUES (?, ?, ?)', [
-      nome,
-      email,
-      hashSenha,
-    ]);
-
-    return res.status(201).json({ mensagem: 'Admin cadastrado com sucesso!' });
-  } catch (erro) {
-    console.error('Erro ao cadastrar admin:', erro);
-    return res.status(500).json({ erro: 'Erro interno do servidor' });
-  }
-});
 
 // Teste rápido
 app.get('/', (req, res) => {

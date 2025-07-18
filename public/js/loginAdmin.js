@@ -1,33 +1,62 @@
-document.getElementById("form-loginAdmin").addEventListener("submit", async function(e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("form-admin-cadastro");
 
-  const nome = document.getElementById("nome").value.trim();
-  const email = document.getElementById("email").value.trim().toLowerCase();
-  const senha = document.getElementById("senha").value;
+  if (!form) return;
 
-  try {
-    const resposta = await fetch("https://site-tronno.onrender.com/api/admin/cadastrar", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nome, email, senha })
-    });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    const dados = await resposta.json();
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("senha").value;
+    const confirmar = document.getElementById("confirmar").value;
 
-    if (resposta.ok) {
-      document.querySelector(".mensagem-sucesso").innerText = dados.mensagem;
-      document.querySelector(".mensagem-sucesso").style.display = "block";
-      document.querySelector(".mensagem-erro").style.display = "none";
-      e.target.reset();
-    } else {
-      document.querySelector(".mensagem-erro").innerText = dados.erro;
-      document.querySelector(".mensagem-erro").style.display = "block";
-      document.querySelector(".mensagem-sucesso").style.display = "none";
+    const erro = document.querySelector(".mensagem-erro");
+    const sucesso = document.querySelector(".mensagem-sucesso");
+
+    if (senha !== confirmar) {
+      erro.textContent = "As senhas não coincidem.";
+      erro.style.display = "block";
+      sucesso.style.display = "none";
+      return;
     }
 
-  } catch (erro) {
-    document.querySelector(".mensagem-erro").innerText = "Erro ao cadastrar admin.";
-    document.querySelector(".mensagem-erro").style.display = "block";
-    console.error("Erro:", erro);
-  }
+    fetch("https://site-tronno.onrender.com/api/admin/registro", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ nome, email, senha }) // ⬅️ Removido o campo "usuario"
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          const errorText = await res.text();
+          throw new Error(errorText);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Resposta do servidor:", data);
+
+        if (data.mensagem === "Administrador registrado com sucesso!") {
+          sucesso.textContent = data.mensagem;
+          sucesso.style.display = "block";
+          erro.style.display = "none";
+
+          setTimeout(() => {
+            window.location.href = "../html/login.html";
+          }, 2000);
+        } else {
+          erro.textContent = data.mensagem || "Erro ao registrar.";
+          erro.style.display = "block";
+          sucesso.style.display = "none";
+        }
+      })
+      .catch((error) => {
+        console.error("Erro na requisição:", error);
+        erro.textContent = error.message || "Erro na conexão com o servidor.";
+        erro.style.display = "block";
+        sucesso.style.display = "none";
+      });
+  });
 });
