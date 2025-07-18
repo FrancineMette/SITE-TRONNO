@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ nome, email, senha }) // ⬅️ Removido o campo "usuario"
+      body: JSON.stringify({ nome, usuario, email, senha }) // ⬅️ Removido o campo "usuario"
     })
       .then(async (res) => {
         if (!res.ok) {
