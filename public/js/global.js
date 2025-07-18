@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("token");
   const usuario = localStorage.getItem("usuario");
-
+  
   if (token && usuario) {
     // 👉 Troca "Entrar" por "Painel do Cliente"
     const btnLogin = document.getElementById("btn-login");
@@ -9,18 +9,20 @@ document.addEventListener("DOMContentLoaded", function () {
       btnLogin.innerText = "Painel do Cliente";
       btnLogin.href = "/html/painel.html"; // Altere se necessário
     }
+  }
 
     // 👉 Mostra botão "Sair"
-    const btnLogout = document.getElementById("btn-logout");
-    if (btnLogout) {
-      btnLogout.style.display = "inline-block"; // ou "block" dependendo do layout
-      btnLogout.addEventListener("click", function () {
-        localStorage.removeItem("token");
-        localStorage.removeItem("usuario");
-        window.location.href = "/index.html"; // Redireciona pra home após logout
-      });
-    }
-  }
+    const botoesLogout = document.querySelectorAll(".btn-logout");
+    botoesLogout.forEach(btn => {
+    btn.style.display = "inline-block";
+    btn.addEventListener("click", () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("usuarioLogado");
+    localStorage.removeItem("produtoParaComprar");
+    window.location.href = "/html/login.html";
+       });
+    });
 
   // 🠗 Botão voltar ao topo
   const botaoTopo = document.querySelector('.voltar-topo');

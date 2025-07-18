@@ -18,13 +18,12 @@
           <li><a href="../html/serviços.html">Serviços</a></li>
           <li><a href="../html/index.html#contato">Contato</a></li>
           <li><a id="btn-login" href="../html/login.html">Entrar</a></li>
-          <li><a id="btn-logout" style="display: none; margin-left: 1rem; cursor: pointer;">Sair</a></li>
+          <li><a class="btn-logout" style="display: none;">Sair</a></li>
         </ul>
       </nav>
 
       <div id="menu-hamburguer" class="hamburguer">☰</div>
 
-                
           <div id="menu-lateral" class="menu-lateral">
             <a href="../html/index.html">Início</a>
             <a href="../html/index.html#sobre">Sobre Nós</a>
@@ -32,8 +31,7 @@
             <a href="../html/serviços.html">Serviços</a>
             <a href="../html/index.html#contato">Contato</a>
             <a id="btn-login" href="../html/login.html">Entrar</a>
-            <a id="btn-logout" style="display: none; margin-left: 1rem; cursor: pointer;">Sair</a>
-          
+            <a class="btn-logout" style="display: none;">Sair</a>         
           </div>
   </header>
 
@@ -51,7 +49,8 @@
         <h3>Nome do Produto</h3>
         <p class="descricao">Descrição resumida do item.</p>
         <p class="disponivel">Disponível</p>
-        <a href="../html/login.html?produto=nome-do-produto" class="botao-compra">Comprar</a>
+        <a href="#" class="botao-compra" data-produto="nome-do-produto">Comprar</a>
+
 
       </div>
 
@@ -63,7 +62,8 @@
         <h3>Outro Produto</h3>
         <p class="descricao">Detalhes ou código do produto.</p>
         <p class="disponivel">Sob encomenda</p>
-        <a href="../html/login.html?produto=nome-do-produto" class="botao-compra">Comprar</a>
+        <a href="#" class="botao-compra" data-produto="nome-do-produto">Comprar</a>
+
 
       </div>
 
@@ -74,18 +74,8 @@
         <h3>Outro Produto</h3>
         <p class="descricao">Detalhes ou código do produto.</p>
         <p class="disponivel">Sob encomenda</p>
-       <a href="../html/login.html?produto=nome-do-produto" class="botao-compra">Comprar</a>
+        <a href="#" class="botao-compra" data-produto="nome-do-produto">Comprar</a>
 
-      </div>
-      
-      <div class="item-catalogo">
-        <div class="imagem-produto">
-          <span class="placeholder">Imagem</span>
-        </div>
-        <h3>Outro Produto</h3>
-        <p class="descricao">Detalhes ou código do produto.</p>
-        <p class="disponivel">Sob encomenda</p>
-        <a href="../html/login.html?produto=nome-do-produto" class="botao-compra">Comprar</a>
 
       </div>
       
@@ -96,7 +86,8 @@
         <h3>Outro Produto</h3>
         <p class="descricao">Detalhes ou código do produto.</p>
         <p class="disponivel">Sob encomenda</p>
-        <a href="../html/login.html?produto=nome-do-produto" class="botao-compra">Comprar</a>
+        <a href="#" class="botao-compra" data-produto="nome-do-produto">Comprar</a>
+
 
       </div>
       
@@ -107,7 +98,20 @@
         <h3>Outro Produto</h3>
         <p class="descricao">Detalhes ou código do produto.</p>
         <p class="disponivel">Sob encomenda</p>
-        <a href="../html/login.html?produto=nome-do-produto" class="botao-compra">Comprar</a>
+        <a href="#" class="botao-compra" data-produto="nome-do-produto">Comprar</a>
+
+
+      </div>
+      
+      <div class="item-catalogo">
+        <div class="imagem-produto">
+          <span class="placeholder">Imagem</span>
+        </div>
+        <h3>Outro Produto</h3>
+        <p class="descricao">Detalhes ou código do produto.</p>
+        <p class="disponivel">Sob encomenda</p>
+        <a href="#" class="botao-compra" data-produto="nome-do-produto">Comprar</a>
+
 
       </div>
 
@@ -124,6 +128,30 @@
   </a>
   
   <a href="#" class="voltar-topo">↑</a>
+  
+  <script>
+        document.querySelectorAll('.botao-compra').forEach(botao => {
+          botao.addEventListener('click', function (e) {
+            e.preventDefault();
+          
+            const produto = this.getAttribute('data-produto');
+          
+            // Simula o check de login
+            const estaLogado = localStorage.getItem('usuarioLogado'); // true ou null
+          
+            if (estaLogado) {
+              // Redireciona direto para o carrinho com o produto
+              window.location.href = `carrinho.html?produto=${produto}`;
+            } else {
+              // Salva o produto escolhido antes do login
+              localStorage.setItem('produtoParaComprar', produto);
+              // Redireciona para login com retorno planejado
+              window.location.href = `login.html?redirect=carrinho`;
+            }
+          });
+        });
+  </script>
+
   <script src="../js/global.js"></script>
 </body>
 </html>
