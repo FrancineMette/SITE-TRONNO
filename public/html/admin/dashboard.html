@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel do Vendedor | TRONNO</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>TRONNO Admin</h2>
+    <a href="#">📦 Pedidos</a>
+    <a href="#">🛍️ Produtos</a>
+    <a href="#">📊 Relatórios</a>
+    <a href="#">👥 Clientes</a>
+    <a href="#">⚙️ Configurações</a>
+    <button class="logout-btn" onclick="logout()">Sair</button>
+  </aside>
+
+  <main class="main">
+    <header>
+      <h1>Bem-vindo ao Painel do Vendedor</h1>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Total de Vendas</h3>
+        <p>R$ 4.530,00</p>
+      </div>
+      <div class="card">
+        <h3>Pedidos Pendentes</h3>
+        <p>5</p>
+      </div>
+      <div class="card">
+        <h3>Produtos em Estoque</h3>
+        <p>124</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function logout() {
+      localStorage.clear();
+      window.location.href = "https://tronno.com.br/html/login.html";
+    }
+  </script>
+</body>
+</html>

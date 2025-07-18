@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro de Admin</title>
+  
+  <body>
+  <div class="container">
+    <h2>Cadastrar Admin</h2>
+    <form id="form-cadastrar-admin">
+      <input type="text" id="nome" placeholder="Nome completo" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="senha" placeholder="Senha" required minlength="6" />
+      <button type="submit">Cadastrar Admin</button>
+    </form>
+    <div class="mensagem-sucesso">Admin cadastrado com sucesso!</div>
+    <div class="mensagem-erro">Erro ao cadastrar admin. Tente novamente.</div>
+  </div>
+
+  <script>
+    document.getElementById("form-cadastrar-admin").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const senha = document.getElementById("senha").value;
+
+      try {
+        const resposta = await fetch("https://site-tronno.onrender.com/api/admin/cadastrar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nome, email, senha })
+        });
+
+        if (resposta.ok) {
+          document.querySelector(".mensagem-sucesso").style.display = "block";
+          document.querySelector(".mensagem-erro").style.display = "none";
+          this.reset();
+        } else {
+          document.querySelector(".mensagem-sucesso").style.display = "none";
+          document.querySelector(".mensagem-erro").style.display = "block";
+        }
+      } catch (erro) {
+        console.error("Erro ao cadastrar admin:", erro);
+        document.querySelector(".mensagem-sucesso").style.display = "none";
+        document.querySelector(".mensagem-erro").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
