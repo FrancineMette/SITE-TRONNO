@@ -36,6 +36,16 @@ header {
   transition: opacity 0.3s ease;
 }
 
+.hamburguer {
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  position: fixed;
+  right: 30px;
+  top: 50px;
+  z-index: 2000;
+}
+
 .menu {
   border: 3px solid white;
   border-radius: 25px;
@@ -73,16 +83,6 @@ header {
   background-color: #808080;
   padding: 10;
   border-radius: 10px;
-}
-
-.hamburguer {
-  font-size: 2rem;
-  cursor: pointer;
-  color: white;
-  position: absolute;
-  right: 30px;
-  top: 20px;
-  z-index: 2000;
 }
 
 .banner {
