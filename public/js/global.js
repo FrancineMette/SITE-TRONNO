@@ -69,4 +69,16 @@ document.addEventListener("DOMContentLoaded", function () {
   if (token && usuario && menuHamburguer) {
     menuHamburguer.style.display = "block";
   }
+
+  const fundoEscuro = document.getElementById('fundo-escuro');
+
+function toggleMenu() {
+  const menu = document.getElementById('menu-lateral');
+  if (menu) {
+    menu.classList.toggle('aberto');
+    fundoEscuro.style.display = menu.classList.contains('aberto') ? 'block' : 'none';
+  }
+}
+
+fundoEscuro.addEventListener('click', toggleMenu);
 });
