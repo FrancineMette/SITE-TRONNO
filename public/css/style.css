@@ -66,16 +66,16 @@ header {
   transform: translateX(0); /* Traz o menu pra dentro da tela */
   background-color: #808080;
   color: #ffffff;
-  font-size: 1.2rem;
-  text-decoration: none;
+  gap: 5px;
 }
 
 .menu-lateral a {
   color: white;              /* 👉 texto branco */
   text-decoration: none;     /* 👉 remove sublinhado */
-  gap: 5px;
   transition: color 0.3s;
   margin-top: 80px;
+  font-size: 1.2rem;
+  text-decoration: none;
 }
 
 .menu-lateral a:hover {
