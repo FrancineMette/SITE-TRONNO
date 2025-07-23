@@ -16,6 +16,11 @@ body {
 }
 
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   padding: 10px 0;
   background-color: rgba(0, 0, 0, 0);
 }
@@ -56,7 +61,7 @@ header {
 .menu a:hover {
   color: #ffffff;
   background-color: #808080;
-  padding: 5;
+  padding: 10;
   border-radius: 10px;
 }
 
@@ -78,24 +83,32 @@ header {
 /* Imagens de fundo */
 .fotos1 {
   position: absolute;
-  top: -28rem;
+  top: -20rem;
   left: -45rem;
   width: 100%;
   z-index: 0;
 }
 
+.fotos1 img {
+  opacity: 0.6;
+}
+
 .fotos2 {
   position: absolute;
-  bottom: -25rem;
-  right: -50rem;
+  bottom: -33rem;
+  right: -53rem;
   width: 100%;
   z-index: 10;
   margin-bottom: -20px;
 }
 
+.fotos2 img {
+  opacity: 0.6;
+}
+
 .fotos3 {
   position: absolute;
-  top: 48%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -115,10 +128,11 @@ header {
 
 /* Conteúdo central */
 .conteudo-hero {
+  margin-top: 150px;
   flex: 1 1 300px;
   text-align: center;
   padding: 20px;
-}
+  }
 
 .conteudo-hero .logo {
   width: 200px;
@@ -146,13 +160,13 @@ header {
 }
 
 .conteudo-hero p {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #ffffff;
   margin: 40px 0;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 600;
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -168,7 +182,7 @@ header {
   font-size: 1rem;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   width: 200px
 }
