@@ -59,5 +59,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   
+window.addEventListener("DOMContentLoaded", function () {
+  const logoCoroa = document.getElementById("logo-coroa");
+
+  if (logoCoroa) {
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 100) {
+        logoCoroa.style.opacity = "1";
+      } else {
+        logoCoroa.style.opacity = "0";
+      }
+    });
+  }
+});
   
 });

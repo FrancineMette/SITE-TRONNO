@@ -26,6 +26,16 @@ header {
 }
 
 /* Cabeçalho */
+#logo-coroa {
+  position: fixed;
+  top: 50px;
+  left: 130px;
+  width: 70px;
+  z-index: 1500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .menu {
   border: 3px solid white;
   border-radius: 25px;
