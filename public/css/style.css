@@ -73,7 +73,7 @@ header {
 .menu-lateral a {
   color: white;              /* 👉 texto branco */
   text-decoration: none;     /* 👉 remove sublinhado */
-  margin-bottom: 10px;       /* 👉 espaçamento entre os links */
+  gap: 5px;
   transition: color 0.3s;
   margin-top: 80px;
 }
