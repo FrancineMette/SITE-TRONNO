@@ -37,12 +37,12 @@ header {
 }
 
 .hamburguer {
-  font-size: 2rem;
+  font-size: 3rem;
   cursor: pointer;
   color: white;
   position: fixed;
-  right: 130px;
-  top: 50px;
+  right: 135px;
+  top: 45px;
   z-index: 2000;
 }
 
