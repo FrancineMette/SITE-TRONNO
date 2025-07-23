@@ -60,7 +60,6 @@ header {
   transition: transform 0.3s ease-in-out;
   z-index: 999;
   flex-direction: column; /* empilha verticalmente */
-  gap: 20px;
 }
 
 .menu-lateral.aberto {
