@@ -41,7 +41,7 @@ header {
   cursor: pointer;
   color: white;
   position: fixed;
-  right: 30px;
+  right: 130px;
   top: 50px;
   z-index: 2000;
 }
@@ -57,10 +57,16 @@ header {
   transform: translateX(100%); /* Esconde o menu pra fora da tela */
   transition: transform 0.3s ease-in-out;
   z-index: 999;
+  flex-direction: column; /* empilha verticalmente */
+  gap: 20px;
 }
 
 .menu-lateral.aberto {
   transform: translateX(0); /* Traz o menu pra dentro da tela */
+  background-color: #808080;
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .menu {
