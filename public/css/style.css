@@ -62,7 +62,7 @@ header {
   color: white;
   text-decoration: none;
   font-weight: light;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-align: center;
   line-height: 2;
   z-index: 1000;
@@ -73,6 +73,16 @@ header {
   background-color: #808080;
   padding: 10;
   border-radius: 10px;
+}
+
+.hamburguer {
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  z-index: 2000;
 }
 
 .banner {

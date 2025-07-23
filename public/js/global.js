@@ -2,27 +2,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("token");
   const usuario = localStorage.getItem("usuario");
   
-  if (token && usuario) {
-    // 👉 Troca "Entrar" por "Painel do Cliente"
-    const btnLogin = document.getElementById("btn-login");
-    if (btnLogin) {
-      btnLogin.innerText = "Painel do Cliente";
-      btnLogin.href = "/html/painel.html"; // Altere se necessário
-    }
+  // 👉 Troca "Entrar" por "Painel do Cliente"
+  const btnLogin = document.getElementById("btn-login");
+  if (token && usuario && btnLogin) {
+    btnLogin.innerText = "Painel do Cliente";
+    btnLogin.href = "/html/painel.html";
   }
 
-    // 👉 Mostra botão "Sair"
-    const botoesLogout = document.querySelectorAll(".btn-logout");
-    botoesLogout.forEach(btn => {
+  // 👉 Mostra botão "Sair"
+  const botoesLogout = document.querySelectorAll(".btn-logout");
+  botoesLogout.forEach(btn => {
     btn.style.display = "inline-block";
     btn.addEventListener("click", () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("usuario");
-    localStorage.removeItem("usuarioLogado");
-    localStorage.removeItem("produtoParaComprar");
-    window.location.href = "/html/login.html";
-       });
+      localStorage.removeItem("token");
+      localStorage.removeItem("usuario");
+      localStorage.removeItem("usuarioLogado");
+      localStorage.removeItem("produtoParaComprar");
+      window.location.href = "/html/login.html";
     });
+  });
 
   // 🠗 Botão voltar ao topo
   const botaoTopo = document.querySelector('.voltar-topo');
@@ -49,28 +47,26 @@ document.addEventListener("DOMContentLoaded", function () {
       menu.classList.toggle('aberto');
     }
   }
-  
+
   document.addEventListener('click', function(event) {
     const menu = document.getElementById('menu-lateral');
     const btn = document.getElementById('menu-hamburguer');
     
-    if(menu.classList.contains('aberto') && !menu.contains(event.target) && event.target !== btn) {
+    if (menu && menu.classList.contains('aberto') && !menu.contains(event.target) && event.target !== btn) {
       menu.classList.remove('aberto');
     }
   });
-  
-window.addEventListener("DOMContentLoaded", function () {
-  const logoCoroa = document.getElementById("logo-coroa");
 
+  // 🠗 Mostrar a coroa ao rolar
+  const logoCoroa = document.getElementById("logo-coroa");
   if (logoCoroa) {
     window.addEventListener("scroll", function () {
-      if (window.scrollY > 100) {
-        logoCoroa.style.opacity = "1";
-      } else {
-        logoCoroa.style.opacity = "0";
-      }
+      logoCoroa.style.opacity = window.scrollY > 100 ? "1" : "0";
     });
   }
-});
-  
+
+  // 🠗 Exibir o menu hambúrguer se estiver logado
+  if (token && usuario && menuHamburguer) {
+    menuHamburguer.style.display = "block";
+  }
 });
