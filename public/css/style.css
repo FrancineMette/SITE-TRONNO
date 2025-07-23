@@ -69,6 +69,19 @@ header {
   text-decoration: none;
 }
 
+.menu-lateral a {
+  color: white;              /* 👉 texto branco */
+  text-decoration: none;     /* 👉 remove sublinhado */
+  margin-bottom: 16px;       /* 👉 espaçamento entre os links */
+  font-size: 18px;
+  transition: color 0.3s;
+  margin-top: 50px;
+}
+
+.menu-lateral a:hover {
+  color: #000000; /* efeito hover */
+}
+
 .menu {
   border: 3px solid white;
   border-radius: 25px;
