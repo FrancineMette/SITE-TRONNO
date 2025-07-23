@@ -48,12 +48,14 @@ header {
 
 .menu-lateral {
   position: fixed;
+  display: flex;
+  align-items: flex-start;
   top: 0;
   right: 0;
   height: 100%;
   width: 250px;
   background-color: #000;
-  padding: 20px;
+  padding: 40px 20px;
   transform: translateX(100%); /* Esconde o menu pra fora da tela */
   transition: transform 0.3s ease-in-out;
   z-index: 999;
@@ -80,6 +82,17 @@ header {
 
 .menu-lateral a:hover {
   color: #000000; /* efeito hover */
+}
+
+#fundo-escuro {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 900;
 }
 
 .menu {
