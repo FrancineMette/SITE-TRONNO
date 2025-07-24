@@ -15,6 +15,11 @@ body {
   position: relative;
 }
 
+.topo-site {
+  height: 100%;
+  border: rgba(0, 0, 0, 0) solid 1px;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -143,9 +148,10 @@ header {
   margin: 0 auto;
   position: relative;
   gap: 20px;
-  height: 90vh
-  
+  height: 90vh; 
+
 }
+
 
 /* Imagens de fundo */
 .fotos1 {
@@ -262,6 +268,7 @@ header {
 .sobre-nos {
   height: 100%;
   background-color: #00000000;
+  border: rgba(0, 0, 0, 0) solid 1px;
 }
 
 .cabecalho-sobre {
@@ -362,12 +369,13 @@ header {
     background-position: left;    
     position: relative;
     color: #fffbfb;
-    padding: 6.25rem 1.25rem;
+    padding: 7rem 1.25rem 5rem;
     margin-top: 0px;
     z-index: 1;
     font-family: "Iceland", sans-serif;
     font-weight: 400;
     font-style: normal;
+    
 } 
 
 .contato .container {
@@ -506,8 +514,8 @@ header {
 footer {
   text-align: center;
   padding: 1.40rem;
-  background-color: #0b0b0b;
-  color: #fffdfd;
+  background-color: #808080;
+  color: #000000;
   font-size: 0.875rem;
 }
 
