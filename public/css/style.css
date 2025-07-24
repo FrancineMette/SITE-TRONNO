@@ -259,57 +259,104 @@ header {
   color: rgb(255, 255, 255);
 }
 /*_______________________________________________________________________________________________________________________________________________*/
-.sobre-nos .intro {
-  font-size: 1.5rem;
-  font-weight: 300;
-  text-align: left;
-  margin-bottom: 0.5rem;
+.sobre-nos {
+  height: 100%;
+  background-color: #00000000;
 }
 
-.titulo-principal {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 3rem;
+.cabecalho-sobre {
+  margin: 150px 100px 20px;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  }   
+
+.cabecalho-sobre .intro {
   text-align: left;
+  font-size: 2rem;
+  color: white;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.cabecalho-sobre .titulo-principal {
+  text-align: flex-start;
+  font-size: 6rem;
+  font-weight: bold;
+  color: white;
+  font-weight: 700;
+  font-style: bold;
+}
+
+/* Layout do conteúdo */
+.conteudo-sobre {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.imagem-sobre img {
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+  align-items: flex-start;
+  margin-left: 100px;
+}
+
+.texto-sobre {
+  flex: 1;
+  max-width: 1200px;
 }
 
 .texto-sobre h3 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  line-height: 1.3;
+  font-size: 5rem;
+  width: 100%;
+  color: white;
+  font-weight: 700;
+  margin: 50px 0 20px;
+  white-space: nowrap;
+}
+
+.texto-sobre p {
+  font-size: 1.5rem;
+  color: white;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .texto-lateral {
-  flex: 1 1 12rem;
-  font-size: 0.9rem;
-  text-align: right;
-  align-self: flex-start;
-  line-height: 1.4;
+  width: 250px;
+  padding-right: 0px;
 }
 
-.sobre-nos .intro {
-    text-align: center;
-  }
+.texto-lateral p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+  color: white;
+  line-height: 1.3;
+  margin-left: -150px;
+  margin-top: -15px;
+  
+}
 
-  .texto-lateral {
-    display: none;
-  }
-
-  .texto-sobre h3 {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  .texto-sobre p {
-    text-align: center;
-  }
+.conteudo-sobre {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 0 50px 100px 20px;
+  flex-wrap: nowrap;
+}
 
 /*_______________________________________________________________________________________________________________________________________________*/
 /* Seção Fale Conosco */
 
 .contato {
-    background: url('../imagens/Sistema2.png') rgb(31, 31, 31);
+    background: url('../imagens/Sistema2.png') rgba(31, 31, 31, 0);
     background-size: 900px 850px;
     background-repeat: no-repeat;
     background-position: left;    
