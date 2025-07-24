@@ -259,117 +259,52 @@ header {
   color: rgb(255, 255, 255);
 }
 /*_______________________________________________________________________________________________________________________________________________*/
-
-.sobre-nos {
-  background-color: #00000000;
-  color: #ffffff;
-  padding: 9rem 1rem; /* antes: 100px 50px */
-  font-family: "Iceland", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+.sobre-nos .intro {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: left;
+  margin-bottom: 0.5rem;
 }
 
-.sobre-nos .container {
-  max-width: 90rem;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.titulo-principal {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
   text-align: left;
 }
 
-.sobre-nos h2 {
-  color: #ffffff;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-  text-align: center;
+.texto-sobre h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
 }
 
-.conteudo-sobre {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap; /* empilha em telas pequenas */
-  justify-content: center; /* centraliza horizontalmente */
-  align-items: stretch;
-  gap: 2rem;
+.texto-lateral {
+  flex: 1 1 12rem;
+  font-size: 0.9rem;
+  text-align: right;
+  align-self: flex-start;
+  line-height: 1.4;
 }
 
-.texto-sobre {
-  flex: 1 1 30rem;
-  max-width: 30rem;
-}
-
-.texto-sobre p {
-  font-size: 1.24rem;
-  margin-bottom: 1.25rem;
-  line-height: 1.6;
-}
-
-.imagem-sobre {
-  flex: 1 1 45rem;
-  max-width: 100%;
-  display: flex;
-  align-items: stretch;
-}
-
-.imagem-sobre img {
-  width: 100%;
-  height: 100%;
-  max-height: 35rem;
-  border-radius: 0.75rem;
-  display: block;
-  object-fit: cover;
+.sobre-nos .intro {
+    text-align: center;
   }
 
-/*_______________________________________________________________________________________________________________________________________________*/
-/* Seção Slogan */
+  .texto-lateral {
+    display: none;
+  }
 
-  .slogan {
-  background-image: url('../imagens/sea.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  padding: 60px 0;
-  text-align: center;
-}
+  .texto-sobre h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 
-.slogan::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.479); /* fade preto */
-  z-index: 0;
-}
+  .texto-sobre p {
+    text-align: center;
+  }
 
-.slogan > * {
-  position: relative;
-  z-index: 1;
-}
-
-.container-slogan {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.slogan-logo {
-  width: 900px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-.slogan-texto {
-  font-size: 2rem;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin-bottom: 60px;
-
-}
 /*_______________________________________________________________________________________________________________________________________________*/
 /* Seção Fale Conosco */
 
