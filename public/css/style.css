@@ -159,6 +159,7 @@ header {
   text-align: center;
   line-height: 2;
   z-index: 1000;
+  flex-wrap: nowrap;
 }
 
 .menu a:hover {
