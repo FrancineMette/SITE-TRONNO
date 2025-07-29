@@ -160,6 +160,8 @@ header {
   line-height: 2;
   z-index: 1000;
   flex-wrap: nowrap;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .menu a:hover {
