@@ -1,10 +1,17 @@
 /* Reset básico */
 * {
-  
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  }
+
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative;
 }
+
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -29,6 +36,7 @@ header {
   padding: 10px 0;
   background-color: rgba(0, 0, 0, 0);
 }
+
 
 /* Cabeçalho */
 #logo-coroa {
@@ -79,8 +87,10 @@ header {
   text-decoration: none;     /* 👉 remove sublinhado */
   transition: color 0.3s;
   margin-top: 80px;
+  margin-bottom: -50px;
   font-size: 1.2rem;
   text-decoration: none;
+  
 }
 
 .menu-lateral a:hover {
@@ -92,32 +102,53 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 900;
 }
 
+.wrapper-menu {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .wrapper-menu {
+    display: none !important; /* sumir com menu horizontal */
+  }
+  #menu-hamburguer {
+    display: block !important; /* mostrar o hambúrguer */
+    cursor: pointer; /* muda o cursor pra mostrar que é clicável */
+  }
+}
+
 .menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 10px 30px;
   border: 3px solid white;
   border-radius: 25px;
-  margin: 20px auto;
-  width: 130vh;
-  height: 7%;
-  padding: 10px 30px;
   background-color: rgba(0, 0, 0, 0);
-  text-transform: uppercase;
-  align-items: center; 
- }
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 768px;
+  box-sizing: border-box;
+}
 
 .menu ul {
   list-style: none;
   display: flex;
-  gap: 90px;
+  gap: 50px;
   justify-content: center;
   align-items: center;
   padding: 0;
   margin: 0;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .menu a {
@@ -140,42 +171,42 @@ header {
 .banner {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: 0;
   position: relative;
   gap: 20px;
   height: 90vh; 
 
 }
 
-
-/* Imagens de fundo */
 .fotos1 {
   position: absolute;
-  top: -20rem;
-  left: -45rem;
+  top: -25rem;
+  left: -20vw;
   width: 100%;
   z-index: 0;
+
 }
 
 .fotos1 img {
+  max-width: 100%;
+  height: auto;
   opacity: 0.6;
 }
 
 .fotos2 {
   position: absolute;
-  bottom: -33rem;
-  right: -53rem;
-  width: 100%;
+  bottom: -25rem;
+  right: -25vw;
+  width: auto;
   z-index: 10;
-  margin-bottom: -20px;
+  
 }
 
 .fotos2 img {
+  max-width: 80%;
+  height: auto;
   opacity: 0.6;
 }
 
@@ -199,7 +230,6 @@ header {
   opacity: 0.4; /* se quiser que ela fique mais sutil */
 }
 
-/* Conteúdo central */
 .conteudo-hero {
   margin-top: 150px;
   flex: 1 1 300px;
@@ -264,6 +294,8 @@ header {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.69) 0%, #ffffff 100%);
   color: rgb(255, 255, 255);
 }
+
+
 /*_______________________________________________________________________________________________________________________________________________*/
 .sobre-nos {
   height: 100%;
@@ -995,4 +1027,166 @@ body.pagina-login {
   padding: 2rem;
   border-radius: 12px;
   color: #ddd;
+}
+
+/* RESPONSIVIDADE GERAL */
+
+@media (max-width: 1200px) {
+  .topo-site {
+    height: auto;
+  }
+  .fotos1 {
+    padding: 0;
+    left: 0vw;
+    transform: translateX(-50%);
+    top: -5rem;
+    z-index: 10;
+  }
+
+  .fotos1 img {
+    max-width: 100%;
+    width: 100vw;
+    opacity: 0.7;
+    padding: 1px;
+  }
+
+  .fotos2 {
+    left: 50vw;
+    bottom: -15rem;
+    z-index: 10;
+  }
+  
+  .fotos2 img {
+    max-width: 100%;
+    opacity: 0.5;
+    padding: 1px;
+  }
+
+  .fotos3 img {
+    z-index: -1;
+    max-width: 100vh;
+    opacity: 0.1;
+  }
+
+  .conteudo-hero .logo {
+  max-width: 50vw;
+}
+
+  .banner .conteudo-hero h1 {
+  font-size: 4rem;
+  margin: -20px 0;
+  }
+
+  .banner .conteudo-hero h2 {
+  font-size: 1rem;
+  margin: 0;
+  }
+
+  .banner .conteudo-hero p {
+    font-size: 1rem;
+    margin: 30px 0;
+  }
+
+  .subtitulo {
+    font-size: 1.2rem;
+  }
+
+  .banner {
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 10px 0;
+    height: auto;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .menu a {
+    font-size: 1rem;
+  }
+
+  .hamburguer {
+    right: 30px;
+    top: 20px;
+  }
+
+  #logo-coroa {
+    top: 10px;
+    left: 20px;
+    width: 50px;
+  }
+
+  .btn-servicos {
+    width: 50%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .conteudo-hero {
+    margin-top: 80px;
+    padding: 10px;
+  }
+
+  .conteudo-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .subtitulo,
+  .conteudo-hero p {
+    font-size: 1rem;
+  }
+
+  .menu {
+    border: none;
+    background: transparent;
+  }
+
+  .menu a {
+    font-size: 14px;
+  }
+
+  .menu ul {
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .conteudo-hero h1 {
+    font-size: 2rem;
+  }
+
+  .conteudo-hero p,
+  .subtitulo {
+    font-size: 0.9rem;
+  }
+
+  .btn-servicos {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .menu a {
+    font-size: 13px;
+  }
+
+  .hamburguer {
+    font-size: 1.8rem;
+    right: 20px;
+    top: 10px;
+  }
+
+  #logo-coroa {
+    width: 40px;
+    left: 15px;
+  }
 }
