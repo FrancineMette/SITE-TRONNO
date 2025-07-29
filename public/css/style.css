@@ -135,7 +135,7 @@ header {
   background-color: rgba(0, 0, 0, 0);
   flex-wrap: wrap;
   width: 100%;
-  max-width: 768px;
+  max-width: 850px;
   box-sizing: border-box;
   height: 70px;
   overflow: hidden;
