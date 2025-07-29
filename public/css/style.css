@@ -133,10 +133,12 @@ header {
   border: 3px solid white;
   border-radius: 25px;
   background-color: rgba(0, 0, 0, 0);
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   width: 100%;
   max-width: 768px;
   box-sizing: border-box;
+  height: 70px;
+  overflow: hidden;
 }
 
 .menu ul {
@@ -167,7 +169,7 @@ header {
 .menu a:hover {
   color: #ffffff;
   background-color: #808080;
-  padding: 10;
+  padding: 5px 10px;
   border-radius: 10px;
 }
 
@@ -185,7 +187,7 @@ header {
 
 .fotos1 {
   position: absolute;
-  top: -25rem;
+  top: -18rem;
   left: -20vw;
   width: 100%;
   z-index: 0;
