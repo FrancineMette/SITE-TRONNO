@@ -22,11 +22,6 @@ body {
   position: relative;
 }
 
-.topo-site {
-  height: 100%;
-  border: rgba(0, 0, 0, 0) solid 1px;
-}
-
 header {
   position: absolute;
   top: 0;
@@ -37,7 +32,6 @@ header {
   background-color: rgba(0, 0, 0, 0);
 }
 
-
 /* Cabeçalho */
 #logo-coroa {
   position: fixed;
@@ -47,6 +41,15 @@ header {
   z-index: 1500;
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+
+.topo-site {
+ 
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border: rgba(0, 0, 0, 0) solid 1px;
 }
 
 .hamburguer {
@@ -1036,10 +1039,15 @@ body.pagina-login {
 
 /* RESPONSIVIDADE GERAL */
 
-@media (max-width: 1200px) {
+  :root {
+  --vh: 100vh;
+}
+
+@media (max-width: 768px) {
   .topo-site {
-    height: auto;
+    height: calc(var(--vh, 1vh) * 100);
   }
+
   .fotos1 {
     padding: 0;
     left: 0vw;

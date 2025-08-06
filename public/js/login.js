@@ -6,7 +6,7 @@ document.getElementById("form-login").addEventListener("submit", async function 
   const senha = document.getElementById("senha").value;
 
   try {
-    const resposta = await fetch("https://site-tronno.onrender.com/api/usuarios/login", {
+    const resposta = await fetch("https://site-tronno-6hml.onrender.com/api/usuarios/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ login, senha })

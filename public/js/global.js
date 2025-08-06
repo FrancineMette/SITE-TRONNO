@@ -81,4 +81,13 @@ function toggleMenu() {
 }
 
 fundoEscuro.addEventListener('click', toggleMenu);
+
+// Corrige vh em dispositivos móveis
+function setVh() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+window.addEventListener('resize', setVh);
+setVh(); // chama no carregamento também
+
 });

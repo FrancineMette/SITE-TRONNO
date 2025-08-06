@@ -7,7 +7,7 @@ document.getElementById('formRegistro').addEventListener('submit', async (e) => 
   const senha = document.getElementById('senha').value;
 
   try {
-    const resposta = await fetch('https://site-tronno.onrender.com/api/usuarios/registro', {
+    const resposta = await fetch('https://site-tronno-6hml.onrender.com/api/usuarios/registro', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ nome, email, senha })

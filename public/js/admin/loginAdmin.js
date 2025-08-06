@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    fetch("https://site-tronno.onrender.com/api/admin/registro", {
+    fetch("https://site-tronno-6hml.onrender.com/api/admin/registro", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
