@@ -370,23 +370,23 @@ header {
   font-size: 1.5rem;
   color: white;
   line-height: 1.6;
-  margin: 0;
+  margin: 130px 0 0;
 }
 
 .texto-lateral {
-  width: 250px;
-  padding-right: 0px;
+  max-width: 300px;
+  padding: auto;
 }
 
 .texto-lateral p {
+  width: 100%;
   font-size: 1.5rem;
   font-weight: bold;
   text-align: left;
   color: white;
   line-height: 1.3;
-  margin-left: -150px;
-  margin-top: -15px;
-  
+  margin-left: 900px;
+  margin-top: -295px;  
 }
 
 .conteudo-sobre {
@@ -1045,7 +1045,8 @@ body.pagina-login {
 
 @media (max-width: 768px) {
   .topo-site {
-    height: calc(var(--vh, 1vh) * 100);
+    height: calc(var(--vh, 1vh) * 60);
+    margin-bottom: -50px;
   }
 
   .fotos1 {
@@ -1078,7 +1079,7 @@ body.pagina-login {
   .fotos3 img {
     z-index: -1;
     max-width: 100vh;
-    opacity: 0.1;
+    opacity: 0.5;
   }
 
   .conteudo-hero .logo {
@@ -1121,6 +1122,8 @@ body.pagina-login {
     gap: 15px;
     padding: 20px;
     width: 100%;
+    border: none;
+    background: transparent;
   }
 
   .menu a {
@@ -1142,9 +1145,7 @@ body.pagina-login {
     width: 50%;
     font-size: 1rem;
   }
-}
 
-@media (max-width: 768px) {
   .conteudo-hero {
     margin-top: 80px;
     padding: 10px;
@@ -1159,19 +1160,76 @@ body.pagina-login {
     font-size: 1rem;
   }
 
-  .menu {
-    border: none;
-    background: transparent;
+/* Sobre Nós */
+ .sobre-nos {
+    height: auto;
   }
 
-  .menu a {
-    font-size: 14px;
+  .cabecalho-sobre {
+    margin: 50px 20px 20px;
+    text-align: left;
   }
 
-  .menu ul {
-    gap: 5px;
+  .cabecalho-sobre .intro {
+    font-size: 1.5rem;
+    text-align: left;
   }
+
+  .cabecalho-sobre .titulo-principal {
+    font-size: 3.5rem;
+    text-align: left;
+  }
+
+  .conteudo-sobre {
+    flex-direction: column;
+    align-items: left;
+    gap: 30px;
+    padding: 0 20px 50px 20px;
+    flex-wrap: wrap; /* Corrigindo o nowrap */
+  }
+
+  .imagem-sobre img {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .texto-sobre {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .texto-sobre h3 {
+    font-size: 2.5rem;
+    white-space: normal;
+    padding-left: 20px;
+    margin-top: 1px;
+
+  }
+
+  .texto-sobre p {
+    max-width: 400px;
+    width: 100%;
+    font-size: 1.2rem;
+    padding-left: 20px;
+    margin-top: 0;
+  }
+
+  .texto-lateral {
+    width: fit-content;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .texto-lateral p {
+    font-size: 1.2rem;
+    margin: -65px 0 20px;
+    text-align: right;
+    padding-left: 150px;
+  }
+
 }
+
 
 @media (max-width: 480px) {
   .conteudo-hero h1 {
