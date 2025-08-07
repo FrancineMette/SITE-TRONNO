@@ -3,3 +3,17 @@ BACKEND DO SITE:
 https://dashboard.render.com/
 Login: atendimento@tronno.com.br
 Senha: Tronno_123
+
+FRONTEND DO SITE: LOCAWEB
+
+App FileZilla:
+
+Host:  tronno1@ftp.tronno.com.br
+Nome de Usuário: tronno1
+Senha: Tronnotecnologia123@
+Porta: 21
+
+BANCO DE DADOS LOCAWEB:
+
+Usuário: sitetronno
+Servidor: sitetronno.mysql.dbaas.com.br
