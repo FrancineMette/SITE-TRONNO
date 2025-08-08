@@ -309,7 +309,7 @@ header {
 }
 
 /* Trocar para mobile em telas pequenas */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .bg-desktop {
     display: none;
   }

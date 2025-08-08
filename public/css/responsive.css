@@ -5,10 +5,19 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .topo-site {
     height: calc(var(--vh, 1vh) * 100);
   }
+
+  .hamburguer {
+  font-size: 2rem;
+}
+
+#logo-coroa {
+  width: clamp(2rem, 1.5rem + 1vw, 3rem);
+}
+
 
   /*.fotos1 {
     padding: 0;
@@ -133,19 +142,19 @@
   }
 
   .cabecalho-sobre .intro {
-    font-size: 1.5rem;
+    font-size: clamp(3rem, 3vw, 4rem);
     text-align: left;
   }
 
   .cabecalho-sobre .titulo-principal {
-    font-size: 3.5rem;
+    font-size: clamp(4rem, 5vw, 6rem);
     text-align: left;
   }
 
   .conteudo-sobre {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: left;
     gap: 30px;
     padding: 0 20px 50px 20px;
     flex-wrap: wrap;
@@ -154,49 +163,46 @@
   .imagem-sobre {
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .imagem-sobre img {
-    max-width: 700px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
     display: block;
   }
 
   .texto-sobre {
-
-    max-width: 700px;
+    max-width: 1024px;
     width: 100%;
     text-align: left;
   }
 
   .texto-sobre h3 {
-    font-size: 2.5rem;
+    font-size: clamp(4rem, 4vw, 5rem);
     white-space: normal;
     padding-left: 10px;
     margin-top: 1px;
   }
 
   .texto-sobre p {
-    max-width: 700px;
+    max-width: 1024px;
     width: 100%;
-    font-size: 1.2rem;
+    font-size: clamp(2rem, 1.5vw, 3rem);
     padding-left: 10px;
-    margin-top: 10px;
+    margin-top: 30px;
     text-align: justify;
   }
 
   .texto-lateral {
-    max-width: 800px;
+    max-width: 1024px;
     width: 100%;
     padding: 0;
     margin-top: -10px;    
   }
 
   .texto-lateral p {
-    font-size: 1.2rem;
+    font-size: clamp(2rem, 1.5vw, 3rem);
     margin: 0;
     text-align: left;
     padding-left: 10px;
@@ -256,12 +262,15 @@
     height: 28px;
   }
 
+  .footer {
+    text-align: center;
+    font-size: clamp(0.75rem, 1vw, 0.875rem);
+  }
 
 @media (min-width: 100px) and (max-width: 550px) {
   .topo-site {
     height: calc(var(--vh, 1vh) * 100);
     margin: 0;
-    border: solid 1px rgb(25, 0, 255);
   }
 
   /*.fotos1 {
@@ -390,7 +399,8 @@
 
   .texto-sobre p {
     font-size: 1rem;
-    padding: 10px 10px 0;
+    padding: 0 10px;
+    margin: 20px 0 0;
     text-align: justify;
   }
 
@@ -448,5 +458,10 @@
   .redes-sociais a img {
     width: 28px;
     height: 28px;
+  }
+
+  footer {
+    text-align: center;
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
   }
 }
