@@ -8,7 +8,6 @@
 @media (max-width: 768px) {
   .topo-site {
     height: calc(var(--vh, 1vh) * 100);
-    border: solid 1px yellow;
   }
 
   /*.fotos1 {
@@ -126,14 +125,11 @@
 /* Sobre Nós_____________________________________________________________________________________________ */
  .sobre-nos {
     height: auto;
-    border: solid 1px red;
-
   }
   .cabecalho-sobre {
     margin: 50px 20px 20px;
     padding: 0 0 0 20px;
     text-align: left;
-    border: solid 1px red;
   }
 
   .cabecalho-sobre .intro {
@@ -361,7 +357,6 @@
   /* SOBRE NÓS */
   .sobre-nos {
     height: auto;
-    border: solid 1px red;
   }
 
   .cabecalho-sobre {
@@ -407,10 +402,6 @@
   }
 
   .contato {
-    border: solid 1px rgb(208, 255, 0);
-  }
-
-  .contato {
     height: auto;
     padding: 2rem 1rem 2rem;
     background-size: contain;
@@ -437,7 +428,6 @@
 
   .info-contato p {
     font-size: 0.9rem;
-    border: solid 1px rgb(208, 255, 0);
   }
 
   .form-contato input,
@@ -453,7 +443,6 @@
 
   .redes-sociais {
     margin: -30px 0 -15px;
-    border: solid 1px rgb(255, 0, 0);
   }
 
   .redes-sociais a img {

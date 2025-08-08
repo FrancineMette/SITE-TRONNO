@@ -36,7 +36,7 @@ header {
 #logo-coroa {
   position: fixed;
   top: 50px;
-  left: 130px;
+  left: 2rem;
   width: 70px;
   z-index: 1500;
   opacity: 0;
