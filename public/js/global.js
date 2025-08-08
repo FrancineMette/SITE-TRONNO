@@ -90,4 +90,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setVh();
   window.addEventListener('resize', setVh);
+
+  const btnLogout = document.querySelector('.btn-logout');
+  const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+
+  if (isLoggedIn) {
+    btnLogout.style.display = 'block';
+  } else {
+    btnLogout.style.display = 'none';
+  }
+
+  // Opcional: botão "Sair" limpa o login
+  btnLogout.addEventListener('click', () => {
+    localStorage.removeItem('loggedIn');
+    btnLogout.style.display = 'none';
+    // redireciona pra página de login, se quiser
+    window.location.href = '../html/login.html';
+  });
 });
