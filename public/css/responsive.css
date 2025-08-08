@@ -1,0 +1,463 @@
+/* RESPONSIVIDADE GERAL */
+
+  :root {
+  --vh: 100vh;
+}
+
+
+@media (max-width: 768px) {
+  .topo-site {
+    height: calc(var(--vh, 1vh) * 100);
+    border: solid 1px yellow;
+  }
+
+  /*.fotos1 {
+    padding: 0;
+    left: 0vw;
+    transform: translateX(-50%);
+    top: -14rem;
+    z-index: 10;
+  }
+
+  .fotos1 img {
+    max-width: 100%;
+    width: 100vw;
+    opacity: 0.7;
+    padding: 1px;
+  }
+
+  .fotos2 {
+    left: 50vw;
+    bottom: -32rem;
+    z-index: 10;
+  }
+  
+  .fotos2 img {
+    max-width: 100%;
+    opacity: 0.5;
+    padding: 1px;
+  }
+
+  .fotos3 {
+    width: 100%;
+    top: 75%;
+ }
+
+  .fotos3 img {
+    z-index: -1;
+    max-width: 100vh;
+    width: 85%;
+    opacity: 0.3;
+    mask-image: linear-gradient(to top, transparent 0%, black 50%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 50%);
+  }
+
+  .conteudo-hero {
+    margin-top: 40%;
+  }
+
+  .conteudo-hero .logo {
+  max-width: 50vw;
+}
+
+  .banner .conteudo-hero h1 {
+  font-size: 6rem;
+  margin: -20px 0;
+  }
+
+  .banner .conteudo-hero h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  }
+
+  .banner .conteudo-hero p {
+    font-size: 1.5rem;
+    margin: 30px 0;
+  }
+
+  .subtitulo {
+    font-size: 1.2rem;
+  }
+
+  .banner {
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 10px 0;
+    height: auto;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    width: 100%;
+    border: none;
+    background: transparent;
+  }
+
+  .menu a {
+    font-size: 1rem;
+  }
+
+  .hamburguer {
+    right: 30px;
+    top: 20px;
+  }
+
+  #logo-coroa {
+    top: 10px;
+    left: 20px;
+    width: 50px;
+  }
+
+  .btn-servicos {
+    width: 50%;
+    font-size: 1rem;
+}
+*/
+
+
+
+/* Sobre Nós_____________________________________________________________________________________________ */
+ .sobre-nos {
+    height: auto;
+    border: solid 1px red;
+
+  }
+  .cabecalho-sobre {
+    margin: 50px 20px 20px;
+    padding: 0 0 0 20px;
+    text-align: left;
+    border: solid 1px red;
+  }
+
+  .cabecalho-sobre .intro {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+  .cabecalho-sobre .titulo-principal {
+    font-size: 3.5rem;
+    text-align: left;
+  }
+
+  .conteudo-sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 0 20px 50px 20px;
+    flex-wrap: wrap;
+  }
+
+  .imagem-sobre {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imagem-sobre img {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .texto-sobre {
+
+    max-width: 700px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .texto-sobre h3 {
+    font-size: 2.5rem;
+    white-space: normal;
+    padding-left: 10px;
+    margin-top: 1px;
+  }
+
+  .texto-sobre p {
+    max-width: 700px;
+    width: 100%;
+    font-size: 1.2rem;
+    padding-left: 10px;
+    margin-top: 10px;
+    text-align: justify;
+  }
+
+  .texto-lateral {
+    max-width: 800px;
+    width: 100%;
+    padding: 0;
+    margin-top: -10px;    
+  }
+
+  .texto-lateral p {
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .texto-lateral br {
+  display: none; /* simplesmente some com eles */
+  }
+}
+
+  .contato {
+    height: auto;
+    padding: 2rem 1rem 2rem;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .contato h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .contato-conteudo {
+    gap: 0.3rem;
+  }
+
+  .mapa iframe {
+    max-height: 300px;
+    height: 100%;
+    max-width: 700px;
+    width: 100%;
+    align-items: center;
+    border-radius: 0.5rem;
+  }
+
+  .info-contato p {
+    font-size: 1.2rem;
+  }
+
+  .form-contato input,
+  .form-contato textarea {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+
+  .form-contato button {
+    font-size: 0.95rem;
+    padding: 0.3rem;
+  }
+
+  .redes-sociais {
+    margin: -30px 0 -15px;
+  }
+
+  .redes-sociais a img {
+    width: 28px;
+    height: 28px;
+  }
+
+
+@media (min-width: 100px) and (max-width: 550px) {
+  .topo-site {
+    height: calc(var(--vh, 1vh) * 100);
+    margin: 0;
+    border: solid 1px rgb(25, 0, 255);
+  }
+
+  /*.fotos1 {
+    top: -25%;
+  }
+
+  .fotos1 img {
+    padding: 2px;
+  }
+
+  .fotos2 {
+    bottom: -100%;
+  }
+
+  .fotos2 img {
+    width: 100vw;
+    padding: 2px;
+  }
+
+  .fotos3 {
+    top: 90%;
+    width: 110%;
+    height: 100vh;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 25%, black 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 25%, black 100%);
+
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  .fotos3 img {
+    opacity: 0.5;
+    padding: 0;
+  }
+
+  .conteudo-hero {
+    border: solid 1px red;
+    margin-top: 60px;
+    padding: 10px;
+  }
+
+  .conteudo-hero h1 {
+    font-size: 2rem;
+  }
+
+  .conteudo-hero h2,
+  .conteudo-hero p,
+  .subtitulo {
+    font-size: 0.9rem;
+  }
+
+  .banner .conteudo-hero h1 {
+    font-size: clamp(2rem, 8vw, 5rem);
+    margin: -10px 0;
+  }
+
+  .banner .conteudo-hero h2 {
+    font-size: 1rem;
+  }
+
+  .banner .conteudo-hero p {
+    font-size: 0.9rem;
+    margin: 20px 0;
+  }
+
+  .btn-servicos {
+    width: 80%;
+    font-size: 0.9rem;
+  }
+
+  .menu {
+    padding: 10px;
+  }
+
+  .menu a {
+    font-size: 0.9rem;
+  }
+
+  .hamburguer {
+    right: 20px;
+    top: 15px;
+  }
+
+  #logo-coroa {
+    left: 15px;
+    width: 40px;
+  }*/
+
+
+
+  /* SOBRE NÓS */
+  .sobre-nos {
+    height: auto;
+    border: solid 1px red;
+  }
+
+  .cabecalho-sobre {
+    margin: 30px 15px 10px;
+    text-align: left;
+  }
+
+  .cabecalho-sobre .intro {
+    font-size: 1.2rem;
+  }
+
+  .cabecalho-sobre .titulo-principal {
+    font-size: 2.5rem;
+  }
+
+  .conteudo-sobre {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 15px 30px;
+  }
+
+  .imagem-sobre img {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .texto-sobre h3 {
+    font-size: 2rem;
+    padding-left: 10px;
+  }
+
+  .texto-sobre p {
+    font-size: 1rem;
+    padding: 10px 10px 0;
+    text-align: justify;
+  }
+
+  .texto-lateral p {
+    font-size: 1rem;
+    margin: 0;
+    padding-left: 10px;
+    text-align: left;
+  }
+
+  .contato {
+    border: solid 1px rgb(208, 255, 0);
+  }
+
+  .contato {
+    height: auto;
+    padding: 2rem 1rem 2rem;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .contato h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .contato-conteudo {
+    gap: 0.3rem;
+  }
+
+  .mapa iframe {
+    max-height: 150px;
+    height: 100%;
+    max-width: 300px;
+    width: 100%;
+    align-items: center;
+    border-radius: 0.5rem;
+  }
+
+  .info-contato p {
+    font-size: 0.9rem;
+    border: solid 1px rgb(208, 255, 0);
+  }
+
+  .form-contato input,
+  .form-contato textarea {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+
+  .form-contato button {
+    font-size: 0.95rem;
+    padding: 0.3rem;
+  }
+
+  .redes-sociais {
+    margin: -30px 0 -15px;
+    border: solid 1px rgb(255, 0, 0);
+  }
+
+  .redes-sociais a img {
+    width: 28px;
+    height: 28px;
+  }
+}

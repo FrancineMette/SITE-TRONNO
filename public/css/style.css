@@ -45,19 +45,20 @@ header {
 
 
 .topo-site {
- 
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
   border: rgba(0, 0, 0, 0) solid 1px;
 }
 
 .hamburguer {
   font-size: 3rem;
   cursor: pointer;
-  color: white;
+  color: rgb(255, 255, 255);
   position: fixed;
-  right: 135px;
+  right: 2rem;
   top: 30px;
   z-index: 2000;
 }
@@ -188,7 +189,7 @@ header {
 
 }
 
-.fotos1 {
+/*.fotos1 {
   position: absolute;
   top: -18rem;
   left: -20vw;
@@ -232,10 +233,12 @@ header {
 }
 
 .fotos3 img {
-  max-width: 40rem; /* ajuste esse valor conforme necessário */
+  max-width: 40rem; 
   width: 100%;
   height: auto;
-  opacity: 0.4; /* se quiser que ela fique mais sutil */
+  opacity: 0.4; 
+  mask-image: linear-gradient(to top, transparent 0%, black 10%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 10%);
 }
 
 .conteudo-hero {
@@ -252,11 +255,10 @@ header {
 
 .conteudo-hero h1 {
   font-size: 8rem;
-  margin: -50 0 -30;
+  margin: -50px 0 -30px;
   font-family: "Jomolhari", serif;
   font-weight: 400;
   font-style: normal;
-
 }
 
 .subtitulo {
@@ -279,6 +281,41 @@ header {
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
+}
+*/
+.bg-desktop,
+.bg-mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 0;
+  margin: -1px 0 -50rem;
+
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0, 0, 0, 0.521) 10%, rgb(0, 0, 0) 20%);
+  mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0, 0, 0, 0.473) 10%, rgb(0, 0, 0) 20%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Mostrar só desktop por padrão */
+.bg-mobile {
+  display: none;
+}
+
+/* Trocar para mobile em telas pequenas */
+@media (max-width: 768px) {
+  .bg-desktop {
+    display: none;
+  }
+  .bg-mobile {
+    display: block;
+  }
 }
 
 .btn-servicos {
@@ -1037,227 +1074,3 @@ body.pagina-login {
   color: #ddd;
 }
 
-/* RESPONSIVIDADE GERAL */
-
-  :root {
-  --vh: 100vh;
-}
-
-@media (max-width: 768px) {
-  .topo-site {
-    height: calc(var(--vh, 1vh) * 60);
-    margin-bottom: -50px;
-  }
-
-  .fotos1 {
-    padding: 0;
-    left: 0vw;
-    transform: translateX(-50%);
-    top: -5rem;
-    z-index: 10;
-  }
-
-  .fotos1 img {
-    max-width: 100%;
-    width: 100vw;
-    opacity: 0.7;
-    padding: 1px;
-  }
-
-  .fotos2 {
-    left: 50vw;
-    bottom: -15rem;
-    z-index: 10;
-  }
-  
-  .fotos2 img {
-    max-width: 100%;
-    opacity: 0.5;
-    padding: 1px;
-  }
-
-  .fotos3 img {
-    z-index: -1;
-    max-width: 100vh;
-    opacity: 0.5;
-  }
-
-  .conteudo-hero .logo {
-  max-width: 50vw;
-}
-
-  .banner .conteudo-hero h1 {
-  font-size: 4rem;
-  margin: -20px 0;
-  }
-
-  .banner .conteudo-hero h2 {
-  font-size: 1rem;
-  margin: 0;
-  }
-
-  .banner .conteudo-hero p {
-    font-size: 1rem;
-    margin: 30px 0;
-  }
-
-  .subtitulo {
-    font-size: 1.2rem;
-  }
-
-  .banner {
-    flex-direction: column;
-    gap: 30px;
-    padding: 20px 10px 0;
-    height: auto;
-  }
-
-  .menu ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .menu {
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-    width: 100%;
-    border: none;
-    background: transparent;
-  }
-
-  .menu a {
-    font-size: 1rem;
-  }
-
-  .hamburguer {
-    right: 30px;
-    top: 20px;
-  }
-
-  #logo-coroa {
-    top: 10px;
-    left: 20px;
-    width: 50px;
-  }
-
-  .btn-servicos {
-    width: 50%;
-    font-size: 1rem;
-  }
-
-  .conteudo-hero {
-    margin-top: 80px;
-    padding: 10px;
-  }
-
-  .conteudo-hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .subtitulo,
-  .conteudo-hero p {
-    font-size: 1rem;
-  }
-
-/* Sobre Nós */
- .sobre-nos {
-    height: auto;
-  }
-
-  .cabecalho-sobre {
-    margin: 50px 20px 20px;
-    text-align: left;
-  }
-
-  .cabecalho-sobre .intro {
-    font-size: 1.5rem;
-    text-align: left;
-  }
-
-  .cabecalho-sobre .titulo-principal {
-    font-size: 3.5rem;
-    text-align: left;
-  }
-
-  .conteudo-sobre {
-    flex-direction: column;
-    align-items: left;
-    gap: 30px;
-    padding: 0 20px 50px 20px;
-    flex-wrap: wrap; /* Corrigindo o nowrap */
-  }
-
-  .imagem-sobre img {
-    width: 90%;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .texto-sobre {
-    max-width: 100%;
-    text-align: left;
-  }
-
-  .texto-sobre h3 {
-    font-size: 2.5rem;
-    white-space: normal;
-    padding-left: 20px;
-    margin-top: 1px;
-
-  }
-
-  .texto-sobre p {
-    max-width: 400px;
-    width: 100%;
-    font-size: 1.2rem;
-    padding-left: 20px;
-    margin-top: 0;
-  }
-
-  .texto-lateral {
-    width: fit-content;
-    padding: 0;
-    margin: 0 auto;
-  }
-
-  .texto-lateral p {
-    font-size: 1.2rem;
-    margin: -65px 0 20px;
-    text-align: right;
-    padding-left: 150px;
-  }
-
-}
-
-
-@media (max-width: 480px) {
-  .conteudo-hero h1 {
-    font-size: 2rem;
-  }
-
-  .conteudo-hero p,
-  .subtitulo {
-    font-size: 0.9rem;
-  }
-
-  .btn-servicos {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
-
-  .menu a {
-    font-size: 13px;
-  }
-
-  .hamburguer {
-    font-size: 1.8rem;
-    right: 20px;
-    top: 10px;
-  }
-
-  #logo-coroa {
-    width: 40px;
-    left: 15px;
-  }
-}

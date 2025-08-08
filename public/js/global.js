@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("token");
   const usuario = localStorage.getItem("usuario");
-  
+
   // 👉 Troca "Entrar" por "Painel do Cliente"
   const btnLogin = document.getElementById("btn-login");
   if (token && usuario && btnLogin) {
@@ -37,23 +37,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 🠗 Menu lateral (hambúrguer)
   const menuHamburguer = document.getElementById('menu-hamburguer');
-  if (menuHamburguer) {
-    menuHamburguer.addEventListener('click', toggleMenu);
-  }
+  const fundoEscuro = document.getElementById('fundo-escuro');
 
   function toggleMenu() {
     const menu = document.getElementById('menu-lateral');
     if (menu) {
       menu.classList.toggle('aberto');
+      if (fundoEscuro) {
+        fundoEscuro.style.display = menu.classList.contains('aberto') ? 'block' : 'none';
+      }
     }
   }
 
-  document.addEventListener('click', function(event) {
+  if (menuHamburguer) {
+    menuHamburguer.addEventListener('click', toggleMenu);
+  }
+
+  if (fundoEscuro) {
+    fundoEscuro.addEventListener('click', toggleMenu);
+  }
+
+  document.addEventListener('click', function (event) {
     const menu = document.getElementById('menu-lateral');
     const btn = document.getElementById('menu-hamburguer');
-    
+
     if (menu && menu.classList.contains('aberto') && !menu.contains(event.target) && event.target !== btn) {
       menu.classList.remove('aberto');
+      if (fundoEscuro) {
+        fundoEscuro.style.display = 'none';
+      }
     }
   });
 
@@ -70,24 +82,12 @@ document.addEventListener("DOMContentLoaded", function () {
     menuHamburguer.style.display = "block";
   }
 
-  const fundoEscuro = document.getElementById('fundo-escuro');
-
-function toggleMenu() {
-  const menu = document.getElementById('menu-lateral');
-  if (menu) {
-    menu.classList.toggle('aberto');
-    fundoEscuro.style.display = menu.classList.contains('aberto') ? 'block' : 'none';
+  // Corrige vh em dispositivos móveis
+  function setVh() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
   }
-}
 
-fundoEscuro.addEventListener('click', toggleMenu);
-
-// Corrige vh em dispositivos móveis
-function setVh() {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
-window.addEventListener('resize', setVh);
-setVh(); // chama no carregamento também
-
+  setVh();
+  window.addEventListener('resize', setVh);
 });
