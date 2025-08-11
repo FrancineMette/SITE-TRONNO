@@ -5,7 +5,7 @@
 }
 
 
-@media (max-width: 1024px) {
+@media (max-width: 1050px) {
   .topo-site {
     height: calc(var(--vh, 1vh) * 100);
   }
@@ -156,8 +156,9 @@
     flex-direction: column;
     align-items: left;
     gap: 30px;
-    padding: 0 20px 50px 20px;
+    padding: 0 20px 30px 0;
     flex-wrap: wrap;
+    
   }
 
   .imagem-sobre {
@@ -215,9 +216,10 @@
 
   .contato {
     height: auto;
-    padding: 2rem 1rem 2rem;
+    padding: 0 1rem 2rem;
     background-size: contain;
     background-position: center;
+    
   }
 
   .contato h2 {
@@ -262,12 +264,12 @@
     height: 28px;
   }
 
-  .footer {
+  footer {
     text-align: center;
     font-size: clamp(0.75rem, 1vw, 0.875rem);
   }
 
-@media (min-width: 100px) and (max-width: 550px) {
+@media (min-width: 1px) and (max-width: 550px) {
   .topo-site {
     height: calc(var(--vh, 1vh) * 100);
     margin: 0;
@@ -413,7 +415,7 @@
 
   .contato {
     height: auto;
-    padding: 2rem 1rem 2rem;
+    padding: 0 1rem 2rem;
     background-size: contain;
     background-position: center;
   }
