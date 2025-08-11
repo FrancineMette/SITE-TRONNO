@@ -616,7 +616,7 @@ footer {
 /* Página de Serviços */
 
 .pagina-servicos {
-  padding: 60px 20px;
+  padding: 120px 20px 50px;
   color: white;
   background-image: url('../imagens/sea.png');
   background-size: cover;
@@ -655,18 +655,24 @@ footer {
 }
 
 .servicos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 30px;
   padding: 20px 0;
+  align-items: center;
 }
 
 .servico {
   background: #3d3d3d;
   border-radius: 12px;
-  padding: 20px;
-  text-align: center;
+  padding: 50px;
+  display: flex; /* coloca imagem e texto lado a lado */
+  align-items: center;
+  gap: 20px;
+  text-align: left;
   transition: transform 0.3s, background 0.3s;
+  width: 80%;
+
 }
 
 .servico:hover {
@@ -675,22 +681,31 @@ footer {
 }
 
 .servico img {
-  width: 100%;
-  max-height: 180px;
+  width: 400px; /* tamanho fixo para imagem */
+  height: auto;
+  max-height: 500px;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 15px;
+  flex-shrink: 0; /* impede a imagem de encolher */
+ 
+}
+
+.servico-conteudo {
+  flex: 1;
 }
 
 .servico h3 {
-  margin: 10px 0;
   font-size: 1.4rem;
   color: #e0e0e0;
+  margin: 0 0 10px 0; /* Espaço entre título e parágrafo */
+  text-align: left;
 }
 
 .servico p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #ccc;
+  text-align: left;
+  margin-top: 20px;
 }
 
 .cta-contato {
