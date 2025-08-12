@@ -11,16 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 👉 Mostra botão "Sair"
   const botoesLogout = document.querySelectorAll(".btn-logout");
-  botoesLogout.forEach(btn => {
-    btn.style.display = "inline-block";
-    btn.addEventListener("click", () => {
-      localStorage.removeItem("token");
-      localStorage.removeItem("usuario");
-      localStorage.removeItem("usuarioLogado");
-      localStorage.removeItem("produtoParaComprar");
-      window.location.href = "/html/login.html";
+  if (token && usuario) {
+    botoesLogout.forEach(btn => {
+      btn.style.display = "inline-block";
+      btn.addEventListener("click", () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("usuario");
+        localStorage.removeItem("usuarioLogado");
+        localStorage.removeItem("produtoParaComprar");
+        window.location.href = "/html/login.html";
+      });
     });
-  });
+  } else {
+    botoesLogout.forEach(btn => btn.style.display = "none");
+  }
 
   // 🠗 Botão voltar ao topo
   const botaoTopo = document.querySelector('.voltar-topo');
@@ -100,11 +104,4 @@ document.addEventListener("DOMContentLoaded", function () {
     btnLogout.style.display = 'none';
   }
 
-  // Opcional: botão "Sair" limpa o login
-  btnLogout.addEventListener('click', () => {
-    localStorage.removeItem('loggedIn');
-    btnLogout.style.display = 'none';
-    // redireciona pra página de login, se quiser
-    window.location.href = '../html/login.html';
-  });
 });
