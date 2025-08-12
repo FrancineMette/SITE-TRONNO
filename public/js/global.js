@@ -2,33 +2,38 @@ document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("token");
   const usuario = localStorage.getItem("usuario");
 
- // Elementos do menu hambúrguer
-  const btnLoginHamburguer = document.querySelector("#menu-lateral #btn-login");
-  const btnLogoutHamburguer = document.querySelector("#menu-lateral .btn-logout");
+ // Seleciona TODOS os botões login dos dois menus
+  const btnLogins = document.querySelectorAll(".btn-login");
+  // Seleciona TODOS os botões sair dos dois menus (pode ter só no hamburguer)
+  const btnLogouts = document.querySelectorAll(".btn-logout");
 
-  // 👉 Troca "Entrar" por "Painel do Cliente"
-  if (token && usuario && btnLoginHamburguer) {
-    btnLoginHamburguer.innerText = "Painel do Cliente";
-    btnLoginHamburguer.href = "/html/painel.html";
-  }
+  if (token && usuario) {
+    // Troca texto e link dos botões login
+    btnLogins.forEach(btn => {
+      btn.innerText = "Painel do Cliente";
+      btn.href = "/html/painel.html";
+      btn.style.display = "inline-block"; // mostra sempre
+    });
 
-  if (token) {
-    // Oculta login e mostra sair
-    if (btnLoginHamburguer) btnLoginHamburguer.style.display = "none";
-    if (btnLogoutHamburguer) btnLogoutHamburguer.style.display = "block";
-
-    // Evento de logout
-    if (btnLogoutHamburguer) {
-      btnLogoutHamburguer.addEventListener("click", function () {
+    // Mostra o botão sair e adiciona evento logout
+    btnLogouts.forEach(btn => {
+      btn.style.display = "inline-block";
+      btn.addEventListener("click", () => {
         localStorage.removeItem("token");
         localStorage.removeItem("usuario");
         window.location.href = "../html/login.html";
       });
-    }
+    });
   } else {
-    // Mostra login e oculta sair
-    if (btnLoginHamburguer) btnLoginHamburguer.style.display = "block";
-    if (btnLogoutHamburguer) btnLogoutHamburguer.style.display = "none";
+    // Usuário não está logado, mostra login e esconde sair
+    btnLogins.forEach(btn => {
+      btn.innerText = "Login";
+      btn.href = "/html/login.html";
+      btn.style.display = "inline-block";
+    });
+    btnLogouts.forEach(btn => {
+      btn.style.display = "none";
+    });
   }
 
   // 🠗 Botão voltar ao topo
