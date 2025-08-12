@@ -2,28 +2,33 @@ document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("token");
   const usuario = localStorage.getItem("usuario");
 
+ // Elementos do menu hambúrguer
+  const btnLoginHamburguer = document.querySelector("#menu-lateral #btn-login");
+  const btnLogoutHamburguer = document.querySelector("#menu-lateral .btn-logout");
+
   // 👉 Troca "Entrar" por "Painel do Cliente"
-  const btnLogin = document.getElementById("btn-login");
-  if (token && usuario && btnLogin) {
-    btnLogin.innerText = "Painel do Cliente";
-    btnLogin.href = "/html/painel.html";
+  if (token && usuario && btnLoginHamburguer) {
+    btnLoginHamburguer.innerText = "Painel do Cliente";
+    btnLoginHamburguer.href = "/html/painel.html";
   }
 
-  // 👉 Mostra botão "Sair"
-  const botoesLogout = document.querySelectorAll(".btn-logout");
-  if (token && usuario) {
-    botoesLogout.forEach(btn => {
-      btn.style.display = "inline-block";
-      btn.addEventListener("click", () => {
+  if (token) {
+    // Oculta login e mostra sair
+    if (btnLoginHamburguer) btnLoginHamburguer.style.display = "none";
+    if (btnLogoutHamburguer) btnLogoutHamburguer.style.display = "block";
+
+    // Evento de logout
+    if (btnLogoutHamburguer) {
+      btnLogoutHamburguer.addEventListener("click", function () {
         localStorage.removeItem("token");
         localStorage.removeItem("usuario");
-        localStorage.removeItem("usuarioLogado");
-        localStorage.removeItem("produtoParaComprar");
-        window.location.href = "/html/login.html";
+        window.location.href = "../html/login.html";
       });
-    });
+    }
   } else {
-    botoesLogout.forEach(btn => btn.style.display = "none");
+    // Mostra login e oculta sair
+    if (btnLoginHamburguer) btnLoginHamburguer.style.display = "block";
+    if (btnLogoutHamburguer) btnLogoutHamburguer.style.display = "none";
   }
 
   // 🠗 Botão voltar ao topo
@@ -94,14 +99,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setVh();
   window.addEventListener('resize', setVh);
-
-  const btnLogout = document.querySelector('.btn-logout');
-  const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
-
-  if (isLoggedIn) {
-    btnLogout.style.display = 'block';
-  } else {
-    btnLogout.style.display = 'none';
-  }
 
 });
