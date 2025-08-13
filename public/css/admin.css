@@ -1,0 +1,134 @@
+/* Página de Registro/Login */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.pagina-login {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../imagens/sistemas-dois.svg') rgb(0, 0, 0);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  display: flex;
+  flex-direction: column; /* layout vertical */
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+}
+main {
+  flex: 1; /* ocupa o espaço central */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container-login {
+  background-color: #1a1a1a;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  text-align: center;
+  justify-content: center; 
+  align-items: center;   
+  
+}
+
+.imagem-login {
+  width: 120px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.container-login h2 {
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: #c0c0c0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.container-login label,
+.container-login input {
+  width: 70%;         /* Mesma largura para alinhar label e input */
+  text-align: left;   /* Texto alinhado à esquerda dentro do bloco */
+}
+
+.container-login label {
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: bold;
+  color: #ddd;
+}
+
+.container-login input {
+  padding: 10px;
+  background-color: #2b2b2b;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.container-login input::placeholder {
+  color: #aaa;
+}
+
+.botao-login {
+  width: 20%;
+  background-color: #ffffff;
+  color: rgb(3, 3, 3);
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin: 20px auto 0 auto;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: block;
+}
+
+.botao-login:hover {
+  background-color: #919191;
+}
+
+.mensagem-esqueci {
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+.mensagem-esqueci a {
+  color: #3a9e40;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.mensagem-esqueci a:hover {
+  text-decoration: underline;
+}
+
+/* Rodapé */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #808080;
+  color: #000000;
+  font-size: 0.875rem;
+}

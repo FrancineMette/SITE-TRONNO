@@ -21,7 +21,7 @@ document.getElementById('form-cadastro').addEventListener('submit', async (e) =>
   const email_nf = document.getElementById('email_nf').value;
 
   try {
-    const resposta = await fetch('hhttps://site-tronno-6hml.onrender.com/api/usuarios/dados-cadastrais', {
+    const resposta = await fetch('https://site-tronno-6hml.onrender.com/api/usuarios/dados-cadastrais', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
