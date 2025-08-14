@@ -17,3 +17,4 @@ BANCO DE DADOS LOCAWEB:
 
 Usuário: sitetronno
 Servidor: sitetronno.mysql.dbaas.com.br
+Senha: Tronno123@
