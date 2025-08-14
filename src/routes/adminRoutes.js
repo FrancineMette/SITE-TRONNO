@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql2/promise');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 // pool local para esta rota
 const pool = mysql.createPool({
@@ -50,15 +51,31 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const { email, senha } = req.body || {};
-    if (!email || !senha) return res.status(400).json({ ok:false, message:'email e senha são obrigatórios' });
+    if (!email || !senha) {
+      return res.status(400).json({ ok:false, message:'email e senha são obrigatórios' });
+    }
 
-    const [rows] = await pool.query('SELECT id, nome, email, senha FROM admins WHERE email = ? LIMIT 1', [email]);
+    const [rows] = await pool.query(
+      'SELECT id, nome, email, senha FROM admins WHERE email = ? LIMIT 1',
+      [email]
+    );
     if (!rows.length) return res.status(401).json({ ok:false, message:'Credenciais inválidas' });
 
     const ok = await bcrypt.compare(String(senha), rows[0].senha);
     if (!ok) return res.status(401).json({ ok:false, message:'Credenciais inválidas' });
 
-    return res.json({ ok:true, admin:{ id: rows[0].id, nome: rows[0].nome, email: rows[0].email } });
+    // >>> Gera token JWT
+    const token = jwt.sign(
+      { sub: rows[0].id, role: 'admin', name: rows[0].nome, email: rows[0].email },
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_EXPIRES_IN || '1d' }
+    );
+
+    return res.json({
+      ok: true,
+      token,
+      admin: { id: rows[0].id, nome: rows[0].nome, email: rows[0].email }
+    });
   } catch (e) {
     console.error(e);
     return res.status(500).json({ ok:false, message:'Erro interno' });
