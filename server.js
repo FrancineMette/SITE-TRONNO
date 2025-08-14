@@ -11,12 +11,15 @@ app.use(cors({
   origin: [
     'https://tronno.com.br',
     'https://www.tronno.com.br',
-    'https://site-tronno-6hml.onrender.com',  // backend
-    'https://site-tronno.onrender.com'        // se existir esse host também
+    'https://site-tronno-6hml.onrender.com',
+    'https://site-tronno.onrender.com',
+    'http://localhost:5500',      // dev local
+    'http://127.0.0.1:5500'       // dev local
   ],
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type'], // adicione 'Authorization' quando tiver login com JWT
+  allowedHeaders: ['Content-Type']
 }));
+
 app.options('*', cors()); // responde preflight global
 
 app.use(express.json());
