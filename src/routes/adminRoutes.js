@@ -4,6 +4,7 @@ const router = express.Router();
 const mysql = require('mysql2/promise');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { autenticarToken, requireAdmin } = require('../../middleware/auth');
 
 // pool local para esta rota
 const pool = mysql.createPool({
@@ -16,7 +17,7 @@ const pool = mysql.createPool({
 });
 
 // POST /api/admin -> cadastrar novo admin
-router.post('/', async (req, res) => {
+router.post('/', autenticarToken, requireAdmin, async (req, res) => {
   try {
     const { nome, email, senha } = req.body || {};
     if (!nome || !email || !senha) {
@@ -42,7 +43,7 @@ router.post('/', async (req, res) => {
 
     return res.status(201).json({ ok:true, admin: rows[0] });
   } catch (e) {
-    console.error(e);
+    console.error('ERRO POST /api/admin:', e);
     return res.status(500).json({ ok:false, message:'Erro interno' });
   }
 });
@@ -64,7 +65,6 @@ router.post('/login', async (req, res) => {
     const ok = await bcrypt.compare(String(senha), rows[0].senha);
     if (!ok) return res.status(401).json({ ok:false, message:'Credenciais inválidas' });
 
-    // >>> Gera token JWT
     const token = jwt.sign(
       { sub: rows[0].id, role: 'admin', name: rows[0].nome, email: rows[0].email },
       process.env.JWT_SECRET,
@@ -77,7 +77,7 @@ router.post('/login', async (req, res) => {
       admin: { id: rows[0].id, nome: rows[0].nome, email: rows[0].email }
     });
   } catch (e) {
-    console.error(e);
+    console.error('ERRO POST /api/admin/login:', e);
     return res.status(500).json({ ok:false, message:'Erro interno' });
   }
 });
