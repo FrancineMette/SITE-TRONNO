@@ -14,4 +14,12 @@ function autenticarToken(req, res, next) {
   });
 }
 
-module.exports = autenticarToken;
+// Middleware que exige role=admin
+function requireAdmin(req, res, next) {
+  if (!req.user || req.user.role !== 'admin') {
+    return res.status(403).json({ mensagem: 'Acesso negado: apenas administradores' });
+  }
+  next();
+}
+
+module.exports = { autenticarToken, requireAdmin };

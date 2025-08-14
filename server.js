@@ -17,7 +17,7 @@ app.use(cors({
     'http://127.0.0.1:5500'       // dev local
   ],
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type']
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.options('*', cors()); // responde preflight global
