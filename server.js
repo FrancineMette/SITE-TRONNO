@@ -29,10 +29,10 @@ app.use(express.static('public'));
 // Rotas existentes
 const usuarioRoutes = require('./src/routes/usuarioRoutes');
 app.use('/api/usuarios', usuarioRoutes);
-
-// Rotas Admin
 const adminRoutes = require('./src/routes/adminRoutes');
 app.use('/api/admin', adminRoutes);
+const colaboradoresRoutes = require('./src/routes/colaboradoresRoutes');
+app.use('/api/colaboradores', colaboradoresRoutes);
 
 // Healthcheck
 app.get('/', (_req, res) => res.send('Servidor está rodando! 🚀'));
