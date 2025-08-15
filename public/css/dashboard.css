@@ -1,129 +1,90 @@
-:root{
-  --bg: #000;
-  --panel: #1a1a1a;
-  --text: #ffffff;
-  --muted: #c0c0c0;
-  --muted-2: #9aa0a6;
-  --btn: #ffffff;
-  --btn-hover: #919191;
-  --shadow: rgba(255, 255, 255, 0.05);
-}
-
-/* Base */
+/* Base: mesmo look do login */
 html, body {
   height: 100%;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Mantém o mesmo fundo da página de login */
 .pagina-login {
   background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../imagens/sistemas-dois.svg') var(--bg);
+    linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url('../imagens/sistemas-dois.svg') #000;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center bottom;
-  color: var(--text);
+  color: #fff;
 
-  display: flex;
-  flex-direction: column;
+  /* CENTRALIZA TUDO NA TELA */
   min-height: 100vh;
+  display: flex;
+  align-items: center;      /* vertical */
+  justify-content: center;  /* horizontal */
+  padding: 24px;
   overflow-x: hidden;
 }
 
-/* Área central */
-main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-/* Card do dashboard (mais largo que o login) */
+/* Card do dashboard (estreito e central) */
 .container-login {
-  background-color: var(--panel);
-  padding: 36px 40px;
-  border-radius: 14px;
-  max-width: 760px;
+  background-color: #1a1a1a;
   width: 100%;
-  box-shadow: 0 0 15px var(--shadow);
+  max-width: 440px;         /* card mais estreito */
+  padding: 32px 28px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,.05);
   text-align: center;
 }
 
 /* Título e saudação */
 .container-login h2 {
   margin: 0 0 8px 0;
-  font-size: 2rem;
-  color: var(--muted);
+  font-size: 1.9rem;
+  color: #c0c0c0;
 }
 
-#saudacao {
-  margin: 4px 0 8px 0;
-  color: var(--muted-2);
-  font-size: 0.95rem;
+.saudacao {
+  margin: 4px 0 12px 0;   /* FICA LOGO ABAIXO DO TÍTULO */
+  opacity: .85;
+  font-size: .95rem;
 }
 
-/* Botões de ação (funciona para <a> e <button>) */
+/* Ações empilhadas */
+.acoes {
+  display: flex;
+  flex-direction: column;  /* UM EMBAIXO DO OUTRO */
+  gap: 12px;
+  margin-top: 16px;
+  align-items: stretch;    /* botões ocupam a largura do card */
+}
+
+/* Botão padrão (serve para <a> e <button>) */
 .botao-login {
   display: inline-block;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
   text-decoration: none;
   text-align: center;
-
-  min-width: 220px;
-  padding: 12px 16px;
-
-  background-color: var(--btn);
+  background: #fff;
   color: #030303;
-
-  font-weight: 700;
-  border: none;
-  border-radius: 10px;
-
-  margin: 10px 6px 0 6px;
   cursor: pointer;
-  transition: transform .15s ease, background .3s ease, box-shadow .2s ease;
+  transition: background .3s, transform .15s, box-shadow .2s;
   box-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
 
-.botao-login:hover {
-  background-color: var(--btn-hover);
-  transform: translateY(-1px);
+.botao-login:hover { background: #919191; transform: translateY(-1px); }
+.botao-login:active { transform: translateY(0); }
+
+/* Variante para “Sair” */
+.botao-secundario {
+  background: #555;
+  color: #fff;
 }
+.botao-secundario:hover { background: #6a6a6a; }
 
-.botao-login:active {
-  transform: translateY(0);
-}
-
-.botao-login:focus-visible {
-  outline: 2px solid #d0d0d0;
-  outline-offset: 2px;
-}
-
-/* Ajustes para links como botão */
-a.botao-login { color: #030303; }
-
-/* Layout responsivo – empilha bem no mobile */
-@media (max-width: 700px) {
-  .container-login {
-    max-width: 96%;
-    padding: 28px 20px;
-  }
-
-  .botao-login {
-    width: 100%;
-    min-width: 0;
-    margin: 10px 0 0 0;
-  }
-}
-
-/* Rodapé (se existir em páginas do dashboard) */
-footer {
-  width: 100%;
-  text-align: center;
-  padding: 0.5rem;
-  background-color: #808080;
-  color: #000;
-  font-size: 0.875rem;
+/* Responsivo */
+@media (max-width: 480px) {
+  .container-login { padding: 24px 20px; }
+  .container-login h2 { font-size: 1.6rem; }
 }
