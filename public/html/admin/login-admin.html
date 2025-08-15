@@ -1,3 +1,4 @@
+<!-- /public/html/admin/login.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,30 +14,27 @@
       <img src="../../imagens/login.svg" alt="Logo" class="imagem-login">
       <h2>Login do Administrador</h2>
 
-      <form action="../backend/login-admin.php" method="POST">
-        <label for="usuario">Nome de Usuário</label>
-        <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required>
+      <!-- REMOVER action/method e usar IDs -->
+      <form id="formLoginAdmin" autocomplete="off">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="email@tronno.com.br" required>
 
         <label for="senha">Senha</label>
-        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+        <input type="password" id="senha" placeholder="Digite sua senha" required>
 
         <button type="submit" class="botao-login">Entrar</button>
       </form>
 
-      <p class="mensagem-esqueci">
-        <a href="#">Esqueci minha senha</a>
-      </p>
+      <p id="msg" class="mensagem-esqueci" style="text-align:center;margin-top:8px;"></p>
+      <p class="mensagem-esqueci"><a href="#">Esqueci minha senha</a></p>
     </div>
   </main>
 
-  <script src="../../js/global.js"></script>
-  <script src="../../js/login.js"></script>
- 
+  <!-- troque login.js por login-admin.js dentro de /js/admin -->
+  <script src="../../js/admin/login-admin.js"></script>
 </body>
 
 <footer>
-    <p>&copy; 2023 TRONNO. Todos os direitos reservados.</p>
+  <p>&copy; 2023 TRONNO. Todos os direitos reservados.</p>
 </footer>
-
-
 </html>

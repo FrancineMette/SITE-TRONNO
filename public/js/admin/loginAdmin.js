@@ -1,62 +1,42 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("form-admin-cadastro");
+const API_BASE = 'https://site-tronno-6hml.onrender.com';
 
-  if (!form) return;
+const form = document.getElementById('formLoginAdmin');
+const btn  = form.querySelector('.botao-login');
+const msg  = document.getElementById('msg');
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-    const nome = document.getElementById("nome").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const senha = document.getElementById("senha").value;
-    const confirmar = document.getElementById("confirmar").value;
+  const email = document.getElementById('email').value.trim();
+  const senha = document.getElementById('senha').value.trim();
 
-    const erro = document.querySelector(".mensagem-erro");
-    const sucesso = document.querySelector(".mensagem-sucesso");
+  if (!email || !senha) { msg.textContent = 'Preencha e-mail e senha.'; return; }
 
-    if (senha !== confirmar) {
-      erro.textContent = "As senhas não coincidem.";
-      erro.style.display = "block";
-      sucesso.style.display = "none";
-      return;
+  btn.disabled = true; msg.style.color=''; msg.textContent = '';
+
+  try {
+    const r = await fetch(`${API_BASE}/api/admin/login`, {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({ email, senha })
+    });
+
+    const data = await r.json().catch(() => ({}));
+
+    if (r.ok && data.token) {
+      // guarda token para usar nas telas protegidas
+      localStorage.setItem('tronno_admin_token', data.token);
+      // login.html -> dashboard.html (mesma pasta /public/html/admin)
+      window.location.href = 'dashboard.html';
+    } else {
+      msg.style.color = 'red';
+      msg.textContent = data.message || 'Credenciais inválidas.';
     }
-
-    fetch("https://site-tronno-6hml.onrender.com/api/admin/registro", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ nome, usuario, email, senha }) // ⬅️ Removido o campo "usuario"
-    })
-      .then(async (res) => {
-        if (!res.ok) {
-          const errorText = await res.text();
-          throw new Error(errorText);
-        }
-        return res.json();
-      })
-      .then((data) => {
-        console.log("Resposta do servidor:", data);
-
-        if (data.mensagem === "Administrador registrado com sucesso!") {
-          sucesso.textContent = data.mensagem;
-          sucesso.style.display = "block";
-          erro.style.display = "none";
-
-          setTimeout(() => {
-            window.location.href = "../html/login.html";
-          }, 2000);
-        } else {
-          erro.textContent = data.mensagem || "Erro ao registrar.";
-          erro.style.display = "block";
-          sucesso.style.display = "none";
-        }
-      })
-      .catch((error) => {
-        console.error("Erro na requisição:", error);
-        erro.textContent = error.message || "Erro na conexão com o servidor.";
-        erro.style.display = "block";
-        sucesso.style.display = "none";
-      });
-  });
+  } catch (err) {
+    console.error(err);
+    msg.style.color = 'red';
+    msg.textContent = 'Falha ao comunicar com o servidor.';
+  } finally {
+    btn.disabled = false;
+  }
 });
