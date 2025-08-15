@@ -1,0 +1,129 @@
+:root{
+  --bg: #000;
+  --panel: #1a1a1a;
+  --text: #ffffff;
+  --muted: #c0c0c0;
+  --muted-2: #9aa0a6;
+  --btn: #ffffff;
+  --btn-hover: #919191;
+  --shadow: rgba(255, 255, 255, 0.05);
+}
+
+/* Base */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Mantém o mesmo fundo da página de login */
+.pagina-login {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../imagens/sistemas-dois.svg') var(--bg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  color: var(--text);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Área central */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Card do dashboard (mais largo que o login) */
+.container-login {
+  background-color: var(--panel);
+  padding: 36px 40px;
+  border-radius: 14px;
+  max-width: 760px;
+  width: 100%;
+  box-shadow: 0 0 15px var(--shadow);
+  text-align: center;
+}
+
+/* Título e saudação */
+.container-login h2 {
+  margin: 0 0 8px 0;
+  font-size: 2rem;
+  color: var(--muted);
+}
+
+#saudacao {
+  margin: 4px 0 8px 0;
+  color: var(--muted-2);
+  font-size: 0.95rem;
+}
+
+/* Botões de ação (funciona para <a> e <button>) */
+.botao-login {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+
+  min-width: 220px;
+  padding: 12px 16px;
+
+  background-color: var(--btn);
+  color: #030303;
+
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+
+  margin: 10px 6px 0 6px;
+  cursor: pointer;
+  transition: transform .15s ease, background .3s ease, box-shadow .2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
+.botao-login:hover {
+  background-color: var(--btn-hover);
+  transform: translateY(-1px);
+}
+
+.botao-login:active {
+  transform: translateY(0);
+}
+
+.botao-login:focus-visible {
+  outline: 2px solid #d0d0d0;
+  outline-offset: 2px;
+}
+
+/* Ajustes para links como botão */
+a.botao-login { color: #030303; }
+
+/* Layout responsivo – empilha bem no mobile */
+@media (max-width: 700px) {
+  .container-login {
+    max-width: 96%;
+    padding: 28px 20px;
+  }
+
+  .botao-login {
+    width: 100%;
+    min-width: 0;
+    margin: 10px 0 0 0;
+  }
+}
+
+/* Rodapé (se existir em páginas do dashboard) */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #808080;
+  color: #000;
+  font-size: 0.875rem;
+}
