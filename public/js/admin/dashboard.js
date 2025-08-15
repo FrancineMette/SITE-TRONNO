@@ -1,5 +1,3 @@
-const LOGIN_URL = `${location.origin}/html/admin/login-admin.html`;
-
 // Util: decodifica payload do JWT com try/catch
 function parseJwt (t) {
   try {
@@ -14,14 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (main) main.style.visibility = 'hidden';
 
   const token = localStorage.getItem('tronno_admin_token');
-  if (!token) return window.location.replace(LOGIN_URL);
+  if (!token) return window.location.replace('/html/admin/login-admin.html');
 
   const payload = parseJwt(token);
   const agora = Math.floor(Date.now() / 1000);
   if (payload.exp && payload.exp < agora) {
     // token expirado
     localStorage.removeItem('tronno_admin_token');
-    return window.location.replace(LOGIN_URL);
+    return window.location.replace('/html/admin/login-admin.html');
   }
 
   // Saudação
@@ -37,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnSair) {
     btnSair.addEventListener('click', () => {
       localStorage.removeItem('tronno_admin_token');
-      window.location.replace(LOGIN_URL);
+      window.location.replace('/html/admin/login-admin.html');
     });
   }
 });
