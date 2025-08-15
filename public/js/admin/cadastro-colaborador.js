@@ -1,3 +1,4 @@
+//cadastro-colaborador.js
 // Usa a BASE do global.js se existir, senão cai no Render
 const API_BASE = window.API_BASE || 'https://site-tronno-6hml.onrender.com';
 // Se sua rota no backend tiver outro caminho, ajuste aqui:

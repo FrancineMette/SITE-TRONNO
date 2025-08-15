@@ -1,3 +1,4 @@
+//colaboradorController.js
 const bcrypt = require('bcrypt');
 const Colabs = require('../models/ColaboradorModel');
 

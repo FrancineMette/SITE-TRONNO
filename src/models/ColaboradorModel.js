@@ -1,5 +1,5 @@
-// usa o seu pool.promise()
-const db = require('../../db');
+// ColaboradorModel.js
+const db = require('../config/db');
 
 async function findByEmail(email) {
   const [rows] = await db.query(
