@@ -27,7 +27,7 @@ form.addEventListener('submit', async (e) => {
       // guarda token para usar nas telas protegidas
       localStorage.setItem('tronno_admin_token', data.token);
       // login.html -> dashboard.html (mesma pasta /public/html/admin)
-      window.location.href = 'dashboard.html';
+      window.location.href = '/html/admin/dashboard.html';
     } else {
       msg.style.color = 'red';
       msg.textContent = data.message || 'Credenciais inválidas.';

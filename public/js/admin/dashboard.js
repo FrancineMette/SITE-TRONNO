@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (main) main.style.visibility = 'hidden';
 
   const token = localStorage.getItem('tronno_admin_token');
-  if (!token) return window.location.replace('login.html');
+  if (!token) return window.location.replace('/html/admin/login-admin.html');
 
   const payload = parseJwt(token);
   const agora = Math.floor(Date.now() / 1000);
   if (payload.exp && payload.exp < agora) {
     // token expirado
     localStorage.removeItem('tronno_admin_token');
-    return window.location.replace('login.html');
+    return window.location.replace('/html/admin/login-admin.html');
   }
 
   // Saudação
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnSair) {
     btnSair.addEventListener('click', () => {
       localStorage.removeItem('tronno_admin_token');
-      window.location.replace('login.html');
+      window.location.replace('html/admin/login-admin.html');
     });
   }
 });
