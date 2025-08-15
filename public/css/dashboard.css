@@ -50,17 +50,16 @@ html, body {
 /* Ações empilhadas */
 .acoes {
   display: flex;
-  flex-direction: column;  /* UM EMBAIXO DO OUTRO */
+  flex-direction: column;
   gap: 12px;
   margin-top: 16px;
-  align-items: stretch;    /* botões ocupam a largura do card */
+  align-items: center;
 }
 
 /* Botão padrão (serve para <a> e <button>) */
 .botao-login {
   display: inline-block;
-  width: 100%;
-  max-width: fit-content;
+  width: auto;
   padding: 12px 16px;
   border-radius: 10px;
   border: none;
@@ -72,6 +71,7 @@ html, body {
   cursor: pointer;
   transition: background .3s, transform .15s, box-shadow .2s;
   box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  margin: 0 auto; 
 }
 
 .botao-login:hover { background: #919191; transform: translateY(-1px); }
