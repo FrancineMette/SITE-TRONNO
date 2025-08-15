@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnSair) {
     btnSair.addEventListener('click', () => {
       localStorage.removeItem('tronno_admin_token');
-      window.location.replace('html/admin/login-admin.html');
+      window.location.replace('/html/admin/login-admin.html');
     });
   }
 });
