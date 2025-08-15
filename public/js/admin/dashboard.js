@@ -1,19 +1,41 @@
-// Guard de rota: só entra se tiver token
-(function guard() {
-  const token = localStorage.getItem('tronno_admin_token');
-  if (!token) {
-    // dashboard.html -> login.html (mesma pasta)
-    window.location.href = 'login.html';
-  } else {
-    // opcional: mostrar nome a partir do payload do JWT
-    const payload = JSON.parse(atob(token.split('.')[1] || 'e30='));
-    const nome = payload?.name || payload?.email || 'Admin';
-    const s = document.getElementById('saudacao');
-    if (s) s.textContent = `Bem-vindo(a), ${nome}`;
-  }
-})();
+// Util: decodifica payload do JWT com try/catch
+function parseJwt (t) {
+  try {
+    const base = t.split('.')[1]; if (!base) return {};
+    return JSON.parse(atob(base.replace(/-/g, '+').replace(/_/g, '/')));
+  } catch { return {}; }
+}
 
-document.getElementById('btnSair').addEventListener('click', () => {
-  localStorage.removeItem('tronno_admin_token');
-  window.location.href = 'login.html';
+// Esconde o conteúdo até validar
+document.addEventListener('DOMContentLoaded', () => {
+  const main = document.querySelector('main');
+  if (main) main.style.visibility = 'hidden';
+
+  const token = localStorage.getItem('tronno_admin_token');
+  if (!token) return window.location.replace('login.html');
+
+  const payload = parseJwt(token);
+  const agora = Math.floor(Date.now() / 1000);
+  if (payload.exp && payload.exp < agora) {
+    // token expirado
+    localStorage.removeItem('tronno_admin_token');
+    return window.location.replace('login.html');
+  }
+
+  // Saudação
+  const nome = payload.name || payload.email || 'Admin';
+  const s = document.getElementById('saudacao');
+  if (s) s.textContent = `Bem-vindo(a), ${nome}`;
+
+  // Mostra a página após validar
+  if (main) main.style.visibility = 'visible';
+
+  // Logout (sem voltar com botão do navegador)
+  const btnSair = document.getElementById('btnSair');
+  if (btnSair) {
+    btnSair.addEventListener('click', () => {
+      localStorage.removeItem('tronno_admin_token');
+      window.location.replace('login.html');
+    });
+  }
 });
