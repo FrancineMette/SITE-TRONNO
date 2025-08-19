@@ -27,8 +27,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Rotas existentes
-const usuarioRoutes = require('./src/routes/usuarioRoutes');
-app.use('/api/usuarios', usuarioRoutes);
 const adminRoutes = require('./src/routes/adminRoutes');
 app.use('/api/admin', adminRoutes);
 const colaboradoresRoutes = require('./src/routes/colaboradoresRoutes');

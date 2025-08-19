@@ -6,19 +6,19 @@ document.getElementById("form-login").addEventListener("submit", async function 
   const senha = document.getElementById("senha").value;
 
   try {
-    const resposta = await fetch("https://site-tronno-6hml.onrender.com/api/usuarios/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ login, senha })
-    });
+    const resposta = await fetch("https://site-tronno-6hml.onrender.com/api/colaboradores/login", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ login, senha })
+});
 
     const dados = await resposta.json();
 
-    if (resposta.ok && dados.token) {
-      // Salva infos de login
+   if (resposta.ok && dados.token) {
       localStorage.setItem("token", dados.token);
-      localStorage.setItem("usuario", dados.usuario);
-      localStorage.setItem("usuarioLogado", true); // 🔒 usado pelo catálogo
+      localStorage.setItem("colaborador", JSON.stringify(dados.colaborador));
+      localStorage.setItem("colaboradorLogado", "true");
+      localStorage.setItem("perfil", dados.colaborador?.perfil || "colaborador");
 
       // Checa se veio de uma tentativa de compra
       const produto = localStorage.getItem("produtoParaComprar");

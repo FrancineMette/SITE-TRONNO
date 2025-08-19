@@ -5,6 +5,7 @@ const router = express.Router();
 const { autenticarToken, requireAdmin } = require('../../middleware/auth');
 const controller = require('../controllers/colaboradorController');
 
-router.post('/', autenticarToken, requireAdmin, controller.criar);
+router.post('/', colaboradorController.criar);
+router.post('/login', colaboradorController.login);
 
 module.exports = router;
