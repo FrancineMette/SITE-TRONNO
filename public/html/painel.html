@@ -1,72 +1,212 @@
-<!-- painel.html -->
+<!-- html/painel.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Painel | TRONNO</title>
+
+  <!-- CSS global do site -->
   <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- CSS específico do painel (aquele que te passei) -->
+  <link rel="stylesheet" href="../css/painel.css" />
+
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-white.png">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-white.png">
 </head>
 <body>
   <header>
-        
-        <img src="../imagens/coroa logo.svg" alt="Logo TRONNO" id="logo-coroa">  
-  
-      <div class="wrapper-menu">
-        <nav class="menu">
-          <ul>
-            <li><a href="../html/index.html">Início</a></li>
-            <li><a href="../html/index.html#sobre">Sobre Nós</a></li>
-            <li><a href="../html/serviços.html">Serviços</a></li>
-            <li><a href="../html/index.html#contato">Contato</a></li>
-            <li><a class="btn-login" href="../html/login.html">Login</a></li>
-          </ul>
-        </nav>
-      </div>
-      
-      <div id="menu-hamburguer" class="hamburguer" style="display: none;">☰</div>
-  
-      <div id="menu-lateral" class="menu-lateral">
-          <a href="../html/index.html">Início</a>
-          <a href="../html/index.html#sobre">Sobre Nós</a>
-          <a href="../html/serviços.html">Serviços</a>
-          <a href="../html/index.html#contato">Contato</a>
-          <a class="btn-login" href="../html/login.html">Login</a>
-          <a class="btn-logout" style="display: none;">Sair</a>         
-      </div>
-        
-      <div id="fundo-escuro"></div>
-        
-    </header>
-    
-    <h1>Bem-vindo ao Portal do cliente</h1>
-  
+    <img src="../imagens/coroa logo.svg" alt="Logo TRONNO" id="logo-coroa">  
+
+    <div class="wrapper-menu">
+      <nav class="menu">
+        <ul>
+          <li><a href="../html/index.html">Início</a></li>
+          <li><a href="../html/index.html#sobre">Sobre Nós</a></li>
+          <li><a href="../html/serviços.html">Serviços</a></li>
+          <li><a href="../html/index.html#contato">Contato</a></li>
+          <li><a class="btn-login" href="../html/login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="menu-hamburguer" class="hamburguer" style="display: none;">☰</div>
+
+    <div id="menu-lateral" class="menu-lateral">
+      <a href="../html/index.html">Início</a>
+      <a href="../html/index.html#sobre">Sobre Nós</a>
+      <a href="../html/serviços.html">Serviços</a>
+      <a href="../html/index.html#contato">Contato</a>
+      <a class="btn-login" href="../html/login.html">Login</a>
+      <a class="btn-logout" style="display: none;">Sair</a>         
+    </div>
+    <div id="fundo-escuro"></div>
+  </header>
+
+  <h1>Bem-vindo ao Portal do Colaborador</h1>
+
   <main class="painel-cliente">
-    <h2 id="nomeUsuario"></h2>
+    <!-- Saudação + Progresso -->
+    <section class="hero">
+      <div class="card">
+        <div class="muted tiny">Bem-vindo(a)</div>
+        <h2 id="tituloSaudacao">Integração TRONNO, <span id="nomeColab">Colaborador</span>!</h2>
+        <p class="muted">Conclua os módulos obrigatórios para finalizar sua integração.</p>
 
-    <nav>
-      <ul>
-        <li><a href="../html/cadastro.html">Cadastro de Dados</a></li>
-        <!-- Outras abas que quiser -->
-      </ul>
-    </nav>
+        <div class="progress" aria-label="Progresso">
+          <div class="bar" id="bar"></div>
+        </div>
 
-    <section>
-      <p>Aqui vai o conteúdo do painel.</p>
+        <div class="btns">
+          <button class="btn ok" id="btnConcluir" disabled>Concluído</button>
+          <button class="btn" id="btnReiniciar">Reiniciar progresso</button>
+        </div>
+      </div>
+
+      <!-- Bloco de Conclusão -->
+      <div class="card done" id="blocoDone">
+        <span>✅ Parabéns, <span id="nomeOk">Colaborador</span> — você concluiu a Integração!</span>
+      </div>
+    </section>
+
+    <!-- Módulos -->
+    <section class="card" style="margin-top: 18px;">
+      <div class="muted tiny">Módulos</div>
+      <div class="grid-modulos" id="listaModulos">
+        <!-- Itens criados via JS -->
+      </div>
     </section>
   </main>
 
-  <script src="../js/painel.js"></script>
-  
+  <!-- Botões flutuantes -->
   <a href="https://wa.me/5547992386012" class="whatsapp-button" target="_blank" aria-label="Fale conosco no WhatsApp">
     <img src="../imagens/whatsapp.png" alt="WhatsApp" />
   </a>
-
   <a href="#" class="voltar-topo">↑</a>
+
+  <!-- JS global do site -->
   <script src="../js/global.js"></script>
 
-</body>
+  <!-- JS do painel (pode ficar aqui mesmo para facilitar) -->
+  <script>
+    // ===== Config =====
+    const STORAGE_KEY = 'tronno_integracao_modulos_v1';
+    const TOKEN_KEY   = 'tronno_colab_token'; // token salvo no login do colaborador
 
+    // ===== Lista de módulos (conforme PDF) =====
+    const MODULOS = [
+      { id:'mvv',   titulo:'Missão, Visão e Valores' },
+      { id:'cartao',titulo:'Cartão Corporativo' },
+      { id:'carro', titulo:'Carro Corporativo' },
+      { id:'email', titulo:'E-mail Corporativo' },
+      { id:'apto',  titulo:'Utilização do Apartamento' },
+      { id:'guia',  titulo:'Guia de Operações' },
+      { id:'ferr',  titulo:'Conservação de Ferramentas' },
+      { id:'epis',  titulo:'Uso de EPIs' }
+    ];
+
+    // ===== Util: decodificar JWT (para mostrar nome) =====
+    function decodeJWT(token){
+      try{
+        const payload = token.split('.')[1];
+        const json = atob(payload.replace(/-/g,'+').replace(/_/g,'/'));
+        return JSON.parse(decodeURIComponent(Array.prototype.map.call(json, c =>
+          '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+        ).join('')));
+      }catch(_){ return null; }
+    }
+
+    // ===== Estado =====
+    function loadState(){
+      try{
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const obj = raw ? JSON.parse(raw) : {};
+        MODULOS.forEach(m => { if(typeof obj[m.id] !== 'boolean') obj[m.id] = false; });
+        return obj;
+      }catch(_){
+        return Object.fromEntries(MODULOS.map(m => [m.id,false]));
+      }
+    }
+    function saveState(state){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+
+    // ===== Boot =====
+    document.addEventListener('DOMContentLoaded', () => {
+      const $lista = document.getElementById('listaModulos');
+      const $bar   = document.getElementById('bar');
+      const $btnConcluir = document.getElementById('btnConcluir');
+      const $btnReiniciar = document.getElementById('btnReiniciar');
+      const $done  = document.getElementById('blocoDone');
+
+      const state  = loadState();
+
+      // Nome do colaborador
+      (function renderNome(){
+        const token = localStorage.getItem(TOKEN_KEY);
+        const payload = token ? decodeJWT(token) : null;
+        const nome = payload?.nome || localStorage.getItem('tronno_colab_nome') || 'Colaborador';
+        const primeiro = nome.split(' ')[0];
+        document.getElementById('nomeColab').textContent = primeiro;
+        document.getElementById('nomeOk').textContent = primeiro;
+      })();
+
+      // Render módulos
+      function renderLista(){
+        $lista.innerHTML = '';
+        MODULOS.forEach(m => {
+          const wrap = document.createElement('label');
+          wrap.className = 'module';
+          wrap.innerHTML = `
+            <input type="checkbox" ${state[m.id] ? 'checked' : ''} data-id="${m.id}" />
+            <div class="title">${m.titulo}</div>
+            <div class="tag">${state[m.id] ? 'Feito' : 'Pendente'}</div>
+          `;
+          $lista.appendChild(wrap);
+        });
+
+        // listeners
+        $lista.querySelectorAll('input[type=checkbox]').forEach(chk => {
+          chk.addEventListener('change', () => {
+            const id = chk.getAttribute('data-id');
+            state[id] = chk.checked;
+            saveState(state);
+            updateProgress();
+            chk.parentElement.querySelector('.tag').textContent = chk.checked ? 'Feito' : 'Pendente';
+          });
+        });
+      }
+
+      // Progresso
+      function updateProgress(){
+        const total = MODULOS.length;
+        const done  = Object.values(state).filter(Boolean).length;
+        const pct   = Math.round((done/total)*100);
+        $bar.style.width = pct + '%';
+
+        const allDone = done === total;
+        $btnConcluir.disabled = !allDone;
+        $done.classList.toggle('show', allDone);
+      }
+
+      // Botões
+      $btnConcluir.addEventListener('click', () => {
+        alert('Integração concluída! ✔️');
+        // Se quiser, aqui dá pra chamar uma rota do seu backend para registrar conclusão.
+      });
+
+      $btnReiniciar.addEventListener('click', () => {
+        if(confirm('Reiniciar seu progresso?')){
+          MODULOS.forEach(m => state[m.id] = false);
+          saveState(state);
+          renderLista();
+          updateProgress();
+        }
+      });
+
+      // Inicializa
+      renderLista();
+      updateProgress();
+    });
+  </script>
+</body>
 </html>

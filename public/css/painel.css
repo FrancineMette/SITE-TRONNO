@@ -1,0 +1,171 @@
+/* ===============================
+   PAINEL DE INTEGRAÇÃO - TRONNO
+   =============================== */
+
+body {
+  background: #000000;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container principal */
+.painel-cliente {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ======= HERO (saudação) ======= */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  margin: 6px 0 12px;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+.muted {
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.tiny {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+/* ======= PROGRESS BAR ======= */
+.progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 6px;
+  background: #e5e7eb;
+  margin: 16px 0;
+  overflow: hidden;
+}
+
+.progress .bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+/* ======= BOTÕES ======= */
+.btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.btn:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+.btn.ok {
+  background: #16a34a;
+}
+.btn.ok:hover:not(:disabled) {
+  background: #15803d;
+}
+
+/* ======= BLOCO CONCLUSÃO ======= */
+.card.done {
+  display: none;
+  background: #ecfdf5;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  font-weight: 500;
+}
+.card.done.show {
+  display: block;
+}
+
+/* ======= GRID DE MÓDULOS ======= */
+.grid-modulos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.module {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 14px;
+  background: #fafafa;
+  transition: background 0.2s, border 0.2s;
+  cursor: pointer;
+}
+
+.module:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.module input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+.module .title {
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.module .tag {
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  align-self: flex-start;
+  background: #f3f4f6;
+  color: #555;
+}
+
+.module input[type="checkbox"]:checked ~ .tag {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* ======= RESPONSIVO ======= */
+@media (max-width: 640px) {
+  .btns {
+    flex-direction: column;
+  }
+}
