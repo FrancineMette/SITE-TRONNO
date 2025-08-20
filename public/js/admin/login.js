@@ -33,6 +33,7 @@ form.addEventListener('submit', async (e) => {
       msg.textContent = data.message || 'Credenciais inválidas.';
     }
   } catch (err) {
+    
     console.error(err);
     msg.style.color = 'red';
     msg.textContent = 'Falha ao comunicar com o servidor.';
